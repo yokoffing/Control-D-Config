@@ -43,3 +43,6 @@ Geo-based custom rules
 #### Redirect
 #### Bypass
 ### Compatibility Mode
+
+Free resolvers
+CTAs
