@@ -83,20 +83,21 @@ Geo-based custom rules
 ### DNS Rebind Protection
 ### Disable DNSSEC
 ### TTL
-Every DNS record has a time-to-live (TTL) value, measured in seconds, that determines how long operating systems cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
+Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
 
-Increasing the TTL values instructs the operating system (OS) to cache DNS records for longer periods before refreshing. This can minimize queries and further optimize performance.
+There are three TTLs that you can tweak in Profile Options. You can set TTL values for [block](https://docs.controld.com/docs/ttl-overrides#block-ttl), [redirect](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [bypass](https://docs.controld.com/docs/ttl-overrides#bypass-ttl) requests.
 
-There are three TTLs that you can tweak in Profile Options. ... to [block](https://docs.controld.com/docs/ttl-overrides#block-ttl), [redirect](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [bypass](https://docs.controld.com/docs/ttl-overrides#bypass-ttl).
+:bulb: Increasing the TTL values caches DNS records for longer periods. This can minimize queries and further optimize performance.
 
-Below are common values to use for DNS caching.
+Below are common values to use for DNS caching, measured in seconds.
 
-| Value   | Duration |
-|---------|----------|
-| `60`    | 1 minute |
-| `3600`  | 1 hour   |
-| `28800` | 8 hours  |
-| `86400` | 24 hours |
+| Value   | Duration  |
+|---------|-----------|
+| `60`    | 1 minute  |
+| `300`   | 5 minutes |
+| `3600`  | 1 hour    |
+| `28800` | 8 hours   |
+| `86400` | 24 hours  |
 
 :warning: Do not set any higher than 24 hours.
 
