@@ -10,6 +10,8 @@
 
 # Profiles
 
+Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
+
 ## Filters
 Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
 
@@ -81,9 +83,23 @@ Geo-based custom rules
 ### DNS Rebind Protection
 ### Disable DNSSEC
 ### TTL
-#### Block
-#### Redirect
-#### Bypass
+Every DNS record has a time-to-live (TTL) value, measured in seconds, that determines how long operating systems cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
+
+Increasing the TTL values instructs the operating system (OS) to cache DNS records for longer periods before refreshing. This can minimize queries and further optimize performance.
+
+There are three TTLs that you can tweak in Profile Options. ... to [block](https://docs.controld.com/docs/ttl-overrides#block-ttl), [redirect](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [bypass](https://docs.controld.com/docs/ttl-overrides#bypass-ttl).
+
+Below are common values to use for DNS caching.
+
+| Value   | Duration |
+|---------|----------|
+| `60`    | 1 minute |
+| `3600`  | 1 hour   |
+| `28800` | 8 hours  |
+| `86400` | 24 hours |
+
+:warning: Do not set any higher than 24 hours.
+
 ### Compatibility Mode
 
 Free resolvers
