@@ -16,20 +16,18 @@ Filters, or blocklists, prevent select websites from resolving. They primarily t
 All filters update every hour to their latest release | OR | All filters are rebuilt and deployed every 30 minutes.
 
 ### Native
-Control D maintains these filters.
-
-Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes).
+Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes).
 
 ### 3rd Party
 These are popular community maintained filters. Hundreds of volunteers contribute to these lists in the [open-source](https://opensource.com/resources/what-open-source) community.
 
-I strongly recommend using one of [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS lists:
+I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS lists:
 * sensible allowlist (doesn't overblock = smooth browsing experience)
 * quickly handles false positives (within the same day, if not sooner)
 * unique entries combined with respected community filters like [OISD](https://oisd.nl/), [Steven Black](https://github.com/StevenBlack/hosts), and other [sources](https://github.com/hagezi/dns-blocklists/blob/main/sources.md)
 
 ### Recommendations
-The first build, **[Set-and-forget](https://glosbe.com/en/en/set-and-forget)**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
+The first build, **Set-and-forget**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
 
 The second build, **More protection**, increases defenses against trackers and malicious sites, but with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
@@ -37,6 +35,8 @@ The second build, **More protection**, increases defenses against trackers and m
 |---------------------|--------------------------------------------------------------------|-------------------------------------------------|
 | **Set-and-forget**  | Malware (Relaxed) <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
 | **More protection** | Dynamic DNS <br> Malware (Relaxed) <br> New Domains <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
+
+:star: Congrats! By using these handful of filters, you are significantly better off than most internet users.
 
 If you prefer to only use Control D's filters:
 
