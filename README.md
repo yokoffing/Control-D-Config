@@ -87,7 +87,7 @@ Every DNS record has a time-to-live (TTL) value that determines how long devices
 
 There are three TTLs that you can tweak in Profile Options. You can set TTL values for [block](https://docs.controld.com/docs/ttl-overrides#block-ttl), [redirect](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [bypass](https://docs.controld.com/docs/ttl-overrides#bypass-ttl) requests.
 
-:bulb: Increasing the TTL values caches DNS records for longer periods. This can minimize queries and further optimize performance.
+:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
 
 Below are common values to use for DNS caching, measured in seconds.
 
