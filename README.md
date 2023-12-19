@@ -124,6 +124,7 @@ For web browsers:
 
 ## Custom Rules
 
+Advanced users may also want to add a folder for [TLDs], or make folders more specific.
 
 ### Allow
 Folder Rule: [Bypass](https://docs.controld.com/docs/custom-rules#bypass)
