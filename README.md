@@ -3,22 +3,38 @@
 2) Pass the [girlfriend test](https://urbandictionary.com/define.php?term=Grandma%20Test) with few exceptions. These deviations are documented throughout the guide.
 
 ***
+# Sign up
 
+[Create an account](https://controld.com/), or take advantage of Control D's [free resolvers](https://controld.com/free-dns).
+
+***
 # Devices
+
+Select the big green + button at `https://controld.com/dashboard/devices` and add the devices that you use.
+
+Add as many as you'd like. For instance, I have a Device option for each web browser I use (I test a lot of websites!), and one for my phone, computer, smart TV, and router.
+
+Every Device option will be connected to a Profile.
 
 ***
 
 # Profiles
+
+To create a profile, select the big green + button at `https://controld.com/dashboard/devices`.
+
+## Organizing profiles
+
+
 
 Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
 ## Filters
 Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
 
-All filters update every hour to their latest release | OR | All filters are rebuilt and deployed every 30 minutes.
+All filters are updated every 30-60 minutes.
 
 ### Native
-Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes).
+Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
 
 ### 3rd Party
 These are popular community maintained filters. Hundreds of volunteers contribute to these lists in the [open-source](https://opensource.com/resources/what-open-source) community.
@@ -80,11 +96,12 @@ Geo-based custom rules
 
 ## Profiles Options
 ### AI Malware Filter
+_Disable_ <br>
 
 ### DNS Rebind Protection
 _Enable_ <br>
 
-DNS Rebind Protection prevents malicious requests from bypassing security measures on your device. For example, if you visit `google.com` and it resolves to a private IP address like `10.0.0.1`, DNS Rebind Protection would block access. This stops attackers from using rebinding techniques to access private networks and endpoints that should not be publicly reachable.
+[DNS Rebind Protection](https://help.nextdns.io/t/35hmval/what-is-dns-rebinding-protection) prevents malicious requests from bypassing security measures on your device. For example, if you visit `google.com` and it resolves to a private IP address like `10.0.0.1`, DNS Rebind Protection would block access. This stops attackers from using rebinding techniques to access private networks and endpoints that should not be publicly reachable.
 
 
 ### Disable DNSSEC
@@ -99,11 +116,12 @@ An argument can be made that using DoH alone does not eliminate the need for DNS
 Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC requires a separate DNS resolver and cache, which impacts performance.
 
 ### TTL
+
+:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
+
 Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
 
 There are three TTLs that you can tweak in Profile Options. You can set TTL values for [block](https://docs.controld.com/docs/ttl-overrides#block-ttl), [redirect](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [bypass](https://docs.controld.com/docs/ttl-overrides#bypass-ttl) requests.
-
-:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
 
 Below are common values to use for DNS caching, measured in seconds.
 
@@ -117,7 +135,5 @@ Below are common values to use for DNS caching, measured in seconds.
 
 :warning: Do not set any higher than 24 hours.
 
-### Compatibility Mode
-
-Free resolvers
-CTAs
+### Disable
+Use the dropdown in the UI to temporarily disable Control D services.
