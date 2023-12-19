@@ -123,12 +123,27 @@ For web browsers:
 ***
 
 ## Custom Rules
+
+
 ### Allow
+Folder Rule: [Bypass](https://docs.controld.com/docs/custom-rules#bypass)
+
+#### Create folder
+1. Under the desired profile, add the folder by clicking the big green + button.
+2. Select **Folder**.
+3. Under **Folder Name**, type `Allow`.
+4. Toggle **Folder Rule**.
+5. Under **Select Rule**, select the middle option **Bypass**.
+
 ### Deny
-### False Positives
-### International
-Geo-based custom rules
-### TLDs
+Folder Rule: [Block](https://docs.controld.com/docs/custom-rules#block)
+
+#### Create folder
+1. Under the desired profile, add the folder by clicking the big green + button.
+2. Select **Folder**.
+3. Under **Folder Name**, type `Deny`.
+4. Toggle **Folder Rule**.
+5. Under **Select Rule**, make sure **Block** is selected.
 
 ***
 
