@@ -80,8 +80,24 @@ Geo-based custom rules
 
 ## Profiles Options
 ### AI Malware Filter
+
 ### DNS Rebind Protection
+_Enable_ <br>
+
+DNS Rebind Protection prevents malicious requests from bypassing security measures on your device. For example, if you visit `google.com` and it resolves to a private IP address like `10.0.0.1`, DNS Rebind Protection would block access. This stops attackers from using rebinding techniques to access private networks and endpoints that should not be publicly reachable.
+
+
 ### Disable DNSSEC
+_Enable_ <br>
+
+:warning: DNSSEC makes things slower, and breaks some sites.
+
+[DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are coupled together in the settings.
+
+An argument can be made that using DoH alone does not eliminate the need for DNSSEC to validate DNS data integrity. However, when using DOH, DOT, or DOQ protocols through a service like Control D, which can manipulate DNS records based on user-defined rules, there is little benefit to also enabling DNSSEC validation. Control D sits between the user and the upstream DNS servers, giving it full control over the records, reducing the value of DNSSEC's authentication.
+
+Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC requires a separate DNS resolver and cache, which impacts performance.
+
 ### TTL
 Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
 
