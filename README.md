@@ -12,9 +12,24 @@
 
 Select the big green + button at `https://controld.com/dashboard/devices` and add the devices that you use.
 
+### Organizing devices
+
 Add as many as you'd like. For instance, I have a Device option for each web browser I use (I test a lot of websites!), and one for my phone, computer, smart TV, and router.
 
 Every Device option will be connected to a Profile.
+
+For instance, using the template from [Organizing profiles], you might have:
+
+| **Device Name** | **Enforced Profile** |
+|-----------------|----------------------|
+| Firefox         | Hardened             |
+| Chrome          | Hardened             |
+| iPhone          | Hardened (or Relaxed) |
+| Wife's iPhone   | Relaxed              |
+| Wife's Mac      | Relaxed              |
+| Susie's iPad    | Kids                 |
+| Living Room TV  | Basic                |
+| Router          | Basic                |
 
 ***
 
@@ -22,11 +37,34 @@ Every Device option will be connected to a Profile.
 
 To create a profile, select the big green + button at `https://controld.com/dashboard/devices`.
 
-## Organizing profiles
-
-
-
 Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
+
+### Organizing profiles
+
+This is where you can get creative. What you name the profiles doesn't matter much; what matters is the options you will enable with each profile.
+
+Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
+
+For example, if you are the only user, you may have two profiles:
+
+1. Hardened (for web browsers, computer, smartphone)
+2. Relaxed (for router, smart TV)
+
+If you have kids, you might have:
+
+1. Administrator (you; stronger settings)
+2. Adults (spouse, grandparents; slightly relaxed settings)
+3. Kids (with parental controls active)
+
+Or a combination of the two apporaches:
+1. Hardened: heightened security and privacy options, since you're maintaining the DNS and don't mind troubleshooting (for web browsers, computer, smartphone)
+2. Relaxed: balance of security and privacy options (for smart TV, your spouse's devices)
+3. Kids: same as Relaxed but with parental controls active
+4. Basic: legacy resolver, security options, but minimal privacy filters (for router)
+
+You get the idea.
+
+Also note that **Analytics** are tied to Device, not the Profile.
 
 ## Filters
 Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
