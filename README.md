@@ -136,6 +136,8 @@ Folder Rule: [Bypass](https://docs.controld.com/docs/custom-rules#bypass)
 4. Toggle **Folder Rule**.
 5. Under **Select Rule**, select the middle option **Bypass**.
 
+Domains added to the **Allow** folder will always resolve.
+
 ### Deny
 Folder Rule: [Block](https://docs.controld.com/docs/custom-rules#block)
 
@@ -146,6 +148,7 @@ Folder Rule: [Block](https://docs.controld.com/docs/custom-rules#block)
 4. Toggle **Folder Rule**.
 5. Under **Select Rule**, make sure **Block** is selected.
 
+Domains added to the **Deny** folder entries are always blocked.
 ***
 
 ## Profiles Options
