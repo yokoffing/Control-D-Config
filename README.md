@@ -10,7 +10,7 @@
 ***
 # Devices
 
-Select the big green + button at `https://controld.com/dashboard/devices` and add the devices that you use.
+Select the big green + button at https://controld.com/dashboard/devices and add the devices that you use.
 
 ### Organizing devices
 
@@ -18,7 +18,7 @@ Add as many as you'd like. For instance, I have a Device option for each web bro
 
 Every Device option will be connected to a Profile.
 
-For instance, using the template from [Organizing profiles], you might have:
+For instance, using the template from the [Organizing profiles](https://github.com/yokoffing/Control-D-Config#organizing-profiles) section, you might have:
 
 | **Device Name** | **Enforced Profile** |
 |-----------------|----------------------|
@@ -35,9 +35,13 @@ For instance, using the template from [Organizing profiles], you might have:
 
 # Profiles
 
-To create a profile, select the big green + button at `https://controld.com/dashboard/devices`.
-
 Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
+
+### Create a profile
+
+To create a profile, select the big green + button at https://controld.com/dashboard/devices.
+
+You'll be asked for a **Profile Name** and given a list of **Options**. See [Profile Options](https://github.com/yokoffing/Control-D-Config#profile-options) to decide which ones to enable.
 
 ### Organizing profiles
 
@@ -45,26 +49,30 @@ This is where you can get creative. What you name the profiles doesn't matter mu
 
 Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
 
-For example, if you are the only user, you may have two profiles:
+For example, you may have two profiles:
 
-1. Hardened (for web browsers, computer, smartphone)
-2. Relaxed (for router, smart TV)
+1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+<details><summary>Toggle me to read more!</summary>
 
 If you have kids, you might have:
 
-1. Administrator (you; stronger settings)
-2. Adults (spouse, grandparents; slightly relaxed settings)
-3. Kids (with parental controls active)
+1. **Administrator** (you the administrator; stronger settings)
+2. **Adults** (spouse, grandparents; slightly relaxed settings)
+3. **Kids** (with parental controls active)
 
 Or a combination of the two apporaches:
-1. Hardened: heightened security and privacy options, since you're maintaining the DNS and don't mind troubleshooting (for web browsers, computer, smartphone)
-2. Relaxed: balance of security and privacy options (for smart TV, your spouse's devices)
-3. Kids: same as Relaxed but with parental controls active
-4. Basic: legacy resolver, security options, but minimal privacy filters (for router)
+1. **Hardened:** heightened security and privacy options, since you're maintaining the DNS and don't mind troubleshooting (for web browsers, computer, smartphone)
+2. **Relaxed:** balance of security and privacy options (for smart TV, your spouse's devices)
+3. **Kids:** same as Relaxed but with parental controls active
+4. **Basic:** legacy resolver, security options, but minimal privacy filters (for router)
 
 You get the idea.
 
 Also note that **Analytics** are tied to Device, not the Profile.
+
+</details>
 
 ## Filters
 Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
@@ -83,23 +91,25 @@ I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS li
 * unique entries combined with respected community filters like [OISD](https://oisd.nl/), [Steven Black](https://github.com/StevenBlack/hosts), and other [sources](https://github.com/hagezi/dns-blocklists/blob/main/sources.md)
 
 ### Recommendations
-The first build, **Set-and-forget**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
+The first build, **Relaxed**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
 
-The second build, **More protection**, increases defenses against trackers and malicious sites, but with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+The second build, **Hardened**, increases defenses against trackers and malicious sites, but with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
 | Build               | Native                                                             | 3rd Party                                       |
 |---------------------|--------------------------------------------------------------------|-------------------------------------------------|
-| **Set-and-forget**  | Malware (Relaxed) <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
-| **More protection** | Dynamic DNS <br> Malware (Relaxed) <br> New Domains <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
+| **Relaxed**  | Malware (Relaxed) <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
+| **Hardened** | Dynamic DNS <br> Malware (Relaxed) <br> New Domains <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
 
 :star: Congrats! By using these handful of filters, you are significantly better off than most internet users.
 
-If you prefer to only use Control D's filters:
+<details><summary>Toggle me if you prefer to only use Native filters:</summary>
 
 | Build                             | Native                                                                                                                                                | 3rd Party |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Set-and-forget (native only)**  | Ads & Trackers (Relaxed) <br> Malware (Relaxed) <br> Phishing                                                                                         |           |
-| **More protection (native only)** | Ads & Trackers (Balanced) <br> Dynamic DNS <br> IoT Telemetry (for non-desktops) <br> Malware (Balanced) <br> New Domains <br> Phishing |           |
+| **Relaxed (native only)**  | Ads & Trackers (Relaxed) <br> Malware (Relaxed) <br> Phishing                                                                                         |           |
+| **Hardened (native only)** | Ads & Trackers (Balanced) <br> Dynamic DNS <br> IoT Telemetry (for non-desktops) <br> Malware (Balanced) <br> New Domains <br> Phishing |           |
+
+</details>
 
 The more filters you use, the greater the risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive). This is because most blocklists [aggregate](https://blog.controld.com/why-you-should-block-ads-with-a-dns-service/#:~:text=Most%20popular%20third%2Dparty%20filters%20already%20block%20over%2090%25%20of%20the%20same%20content%2C%20so%20adding%20more%20provides%20minimal%20benefit.) from other sources, so adding multiple lists does not necessarily increase coverage.
 
@@ -120,35 +130,35 @@ For web browsers:
 
 ## Services
 
+*N/A for now*
+
 ***
 
 ## Custom Rules
 
-Advanced users may also want to add a folder for [TLDs], or make folders more specific.
+For simplicity, I advise that you create two folders: an **Allowlist** folder and a **Denylist** folder.
 
-### Allow
-Folder Rule: [Bypass](https://docs.controld.com/docs/custom-rules#bypass)
-
-#### Create folder
-1. Under the desired profile, add the folder by clicking the big green + button.
-2. Select **Folder**.
-3. Under **Folder Name**, type `Allow`.
-4. Toggle **Folder Rule**.
-5. Under **Select Rule**, select the middle option **Bypass**.
-
-Domains added to the **Allow** folder will always resolve.
-
-### Deny
-Folder Rule: [Block](https://docs.controld.com/docs/custom-rules#block)
+### Allowlist
+Domains added to the **Allowlist** folder will always resolve.
 
 #### Create folder
 1. Under the desired profile, add the folder by clicking the big green + button.
 2. Select **Folder**.
-3. Under **Folder Name**, type `Deny`.
+3. Under **Folder Name**, type `Allowlist`.
 4. Toggle **Folder Rule**.
-5. Under **Select Rule**, make sure **Block** is selected.
+5. Under **Select Rule**, select the middle option **[Bypass](https://docs.controld.com/docs/custom-rules#bypass)**.
 
-Domains added to the **Deny** folder entries are always blocked.
+### Denylist
+Domains added to the **Denylist** folder entries are always blocked.
+
+#### Create folder
+1. Under the desired profile, add the folder by clicking the big green + button.
+2. Select **Folder**.
+3. Under **Folder Name**, type `Denylist`.
+4. Toggle **Folder Rule**.
+5. Under **Select Rule**, make sure **[Block](https://docs.controld.com/docs/custom-rules#block)** is selected.
+
+Advanced users may also want to add a folder for [TLDs](https://github.com/yokoffing/NextDNS-Config#block-top-level-domains-tlds-1-2-3-4-5-) with a folder rule of **Block**.
 ***
 
 ## Profiles Options
