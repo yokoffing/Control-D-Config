@@ -136,6 +136,8 @@ For web browsers:
 
 ## Custom Rules
 
+Custom Rules allow you to add sites by Domain or by Folder. To keep thing tidy, setup two folders, and then add domains as needed to them.
+
 For simplicity, I advise that you create two folders: an **Allowlist** folder and a **Denylist** folder.
 
 ### Allowlist
