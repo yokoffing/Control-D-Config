@@ -5,7 +5,7 @@
 ***
 # Sign up
 
-[Create an account](https://controld.com/), or take advantage of Control D's [free resolvers](https://controld.com/free-dns).
+[Create an account](https://controld.com/personal/), or take advantage of Control D's [free resolvers](https://controld.com/free-dns).
 
 ***
 # Devices
