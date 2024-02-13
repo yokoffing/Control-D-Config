@@ -122,15 +122,6 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 
 :star: Congrats! By using these filters, you are significantly better off than most internet users.
 
-### Other suggestions
-
-DNS filtering should act as an initial barrier to block unwanted connections, but not your only defense.
-
-For web browsers:
-* Desktops: [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release) with [Betterfox](https://github.com/yokoffing/Betterfox) and [uBlock Origin](https://ublockorigin.com/).
-* Android: [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/all/#product-desktop-release) with [uBlock Origin](https://ublockorigin.com/).
-* iOS: Safari with [AdGuard](https://apps.apple.com/us/app/adguard-for-safari/id1440147259?mt=12).
-
 ***
 
 ## Services
