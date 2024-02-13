@@ -75,21 +75,31 @@ As an example, you might have:
 
 ***
 
-## :receipt: Filters 
-Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
+## :receipt: Filters
 
-All filters are updated every 30-60 minutes.
+:bulb: A few well-chosen filters provide comprehensive protection.
+
+:warning: Since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
+
+Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites. All filters are updated every 30-60 minutes.
 
 ### Native
 Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
 
 ### 3rd Party
+
 These are popular community maintained filters. Hundreds of volunteers contribute to these lists in the [open-source](https://opensource.com/resources/what-open-source) community.
 
-I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS lists:
+While most DNS blocklists [aggregate](https://blog.controld.com/why-you-should-block-ads-with-a-dns-service/#:~:text=Most%20popular%20third%2Dparty%20filters%20already%20block%20over%2090%25%20of%20the%20same%20content%2C%20so%20adding%20more%20provides%20minimal%20benefit.) their entries from other sources, they do not include their source's allowlist. They must manually build an allowlist over time. Therefore, when it comes to protecting yourself, adding multiple 3rd party lists does not provide substantial benefits. Rather, it only increases your chances of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+The key is to choose reputable filters that balance breadth with accuracy. Ultimately, [false positives](https://csrc.nist.gov/glossary/term/false_positive) can disrupt legitimate traffic, so quality is preferable over quantity when selecting blocklists.
+
+I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS lists for his:
 * sensible allowlist (doesn't overblock = smooth browsing experience)
-* quickly handles false positives (within the same day, if not sooner)
+* quick handling of [false positives](https://csrc.nist.gov/glossary/term/false_positive) (within the same day, if not sooner)
 * unique entries combined with respected community filters like [OISD](https://oisd.nl/), [Steven Black](https://github.com/StevenBlack/hosts), and other [sources](https://github.com/hagezi/dns-blocklists/blob/main/sources.md)
+
+You can choose other 3rd party lists, but they aren't needed.
 
 ### Recommendations
 The first build, **Relaxed**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
@@ -99,7 +109,9 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 | Build               | Native                                                             | 3rd Party                                       |
 |---------------------|--------------------------------------------------------------------|-------------------------------------------------|
 | **Relaxed**  | Malware (Relaxed) <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware (Relaxed) <br> New Domains <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
+| **Hardened** | Dynamic DNS <br> Malware (Relaxed) <br> New Domains* <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
+
+<sup> *Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 
 :star: Congrats! By using these handful of filters, you are significantly better off than most internet users.
 
@@ -112,13 +124,7 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 
 </details>
 
-The more filters you use, the greater the risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive). This is because most blocklists [aggregate](https://blog.controld.com/why-you-should-block-ads-with-a-dns-service/#:~:text=Most%20popular%20third%2Dparty%20filters%20already%20block%20over%2090%25%20of%20the%20same%20content%2C%20so%20adding%20more%20provides%20minimal%20benefit.) from other sources, so adding multiple lists does not necessarily increase coverage.
-
-The key is to choose reputable filters that balance breadth with accuracy. Ultimately, false positives can disrupt legitimate traffic, so quality is preferable over quantity when selecting blocklists.
-
-:bulb: Two or three well-chosen filters provide comprehensive protection.
-
-:warning: Since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
+### Other suggestions
 
 DNS filtering should act as an initial barrier to block unwanted connections, but not your only defense.
 
