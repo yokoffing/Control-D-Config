@@ -23,9 +23,12 @@ You'll be asked for a **Profile Name** and given a list of **Options**. See [Pro
 
 This is where you can get creative. What you name the profiles doesn't matter much; what matters is the options you will enable with each profile.
 
-Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
+For example, you may create two profiles, and then later link devices to one of the two profiles:
 
-<details><summary>Toggle me to read more!</summary>
+1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
 
 If you have kids, you might have:
 
@@ -33,7 +36,7 @@ If you have kids, you might have:
 2. **Adults** (spouse, grandparents; slightly relaxed settings)
 3. **Kids** (with parental controls active)
 
-Or a combination of the two apporaches:
+Or a combination of the two approaches:
 1. **Hardened:** heightened security and privacy options, since you're maintaining the DNS and don't mind troubleshooting (for web browsers, computer, smartphone)
 2. **Relaxed:** balance of security and privacy options (for smart TV, your spouse's devices)
 3. **Kids:** same as Relaxed but with parental controls active
@@ -41,18 +44,9 @@ Or a combination of the two apporaches:
 
 You get the idea.
 
-Also note that **Analytics** are tied to Device, not the Profile.
-
-</details>
-
 # Devices
 
 Every **Device** is connected to a **Profile**.
-
-For example, you may have two profiles:
-
-1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
-2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
 To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use.
 
@@ -60,7 +54,7 @@ To create a device, select the big green `+` button at https://controld.com/dash
 
 Add as many as you'd like. For instance, I have a Device option for each web browser I use, and one for my phone, computer, smart TV, and router.
 
-As an example, you might have:
+Let's use the profile names from a moment ago. You might have:
 
 | **Device Name** | **Enforced Profile** |
 |-----------------|----------------------|
@@ -81,7 +75,9 @@ As an example, you might have:
 
 :warning: Since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
 
-Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites. All filters are updated every 30-60 minutes.
+Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
+
+All filters are updated every 30-60 minutes.
 
 ### Native
 Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
@@ -174,8 +170,7 @@ Advanced users may also want to add a folder for [TLDs](https://github.com/yokof
 ### AI Malware Filter
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
 
-Relaxed profiles: Leave disabled <br>
-Hardened profiles: Enable (Relaxed Mode) if you're okay with reporting false positives.
+*Enable in (Relaxed Mode) for Hardened profiles.*
 
 ### Safe Search
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
