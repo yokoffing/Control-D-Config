@@ -8,30 +8,6 @@
 [Create an account](https://controld.com/personal/), or take advantage of Control D's [free resolvers](https://controld.com/free-dns).
 
 ***
-# Devices
-
-Select the big green + button at https://controld.com/dashboard/devices and add the devices that you use.
-
-### Organizing devices
-
-Add as many as you'd like. For instance, I have a Device option for each web browser I use (I test a lot of websites!), and one for my phone, computer, smart TV, and router.
-
-Every Device option will be connected to a Profile.
-
-For instance, using the template from the [Organizing profiles](https://github.com/yokoffing/Control-D-Config#organizing-profiles) section, you might have:
-
-| **Device Name** | **Enforced Profile** |
-|-----------------|----------------------|
-| Firefox         | Hardened             |
-| Chrome          | Hardened             |
-| iPhone          | Hardened (or Relaxed) |
-| Wife's iPhone   | Relaxed              |
-| Wife's Mac      | Relaxed              |
-| Susie's iPad    | Kids                 |
-| Living Room TV  | Basic                |
-| Router          | Basic                |
-
-***
 
 # Profiles
 
@@ -39,7 +15,7 @@ Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
 ### Create a profile
 
-To create a profile, select the big green + button at https://controld.com/dashboard/devices.
+To create a profile, select the big green `+` button at https://controld.com/dashboard/devices.
 
 You'll be asked for a **Profile Name** and given a list of **Options**. See [Profile Options](https://github.com/yokoffing/Control-D-Config#profile-options) to decide which ones to enable.
 
@@ -48,11 +24,6 @@ You'll be asked for a **Profile Name** and given a list of **Options**. See [Pro
 This is where you can get creative. What you name the profiles doesn't matter much; what matters is the options you will enable with each profile.
 
 Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
-
-For example, you may have two profiles:
-
-1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
-2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
 <details><summary>Toggle me to read more!</summary>
 
@@ -74,7 +45,37 @@ Also note that **Analytics** are tied to Device, not the Profile.
 
 </details>
 
-## Filters
+# Devices
+
+Every **Device** is connected to a **Profile**.
+
+For example, you may have two profiles:
+
+1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use.
+
+### Organizing devices
+
+Add as many as you'd like. For instance, I have a Device option for each web browser I use, and one for my phone, computer, smart TV, and router.
+
+As an example, you might have:
+
+| **Device Name** | **Enforced Profile** |
+|-----------------|----------------------|
+| Firefox         | Hardened             |
+| Chrome          | Hardened             |
+| iPhone          | Hardened             |
+| Wife's iPhone   | Relaxed              |
+| Wife's Mac      | Relaxed              |
+| Susie's iPad    | Kids                 |
+| Living Room TV  | Basic                |
+| Router          | Basic                |
+
+***
+
+## :receipt: Filters 
 Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
 
 All filters are updated every 30-60 minutes.
@@ -134,7 +135,7 @@ For web browsers:
 
 ***
 
-## Custom Rules
+## :hammer: Custom Rules
 
 Custom Rules allow you to add sites by Domain or by Folder. To keep thing tidy, setup two folders, and then add domains as needed to them.
 
@@ -144,7 +145,7 @@ For simplicity, I advise that you create two folders: an **Allowlist** folder an
 Domains added to the **Allowlist** folder will always resolve.
 
 #### Create folder
-1. Under the desired profile, add the folder by clicking the big green + button.
+1. Under the desired profile, add the folder by clicking the big green `+` button.
 2. Select **Folder**.
 3. Under **Folder Name**, type `Allowlist`.
 4. Toggle **Folder Rule**.
@@ -154,7 +155,7 @@ Domains added to the **Allowlist** folder will always resolve.
 Domains added to the **Denylist** folder entries are always blocked.
 
 #### Create folder
-1. Under the desired profile, add the folder by clicking the big green + button.
+1. Under the desired profile, add the folder by clicking the big green `+` button.
 2. Select **Folder**.
 3. Under **Folder Name**, type `Denylist`.
 4. Toggle **Folder Rule**.
@@ -163,8 +164,9 @@ Domains added to the **Denylist** folder entries are always blocked.
 Advanced users may also want to add a folder for [TLDs](https://github.com/yokoffing/NextDNS-Config#block-top-level-domains-tlds-1-2-3-4-5-) with a folder rule of **Block**.
 ***
 
-## Profiles Options
+## :gear: Profiles Options 
 ### AI Malware Filter
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
 Relaxed profiles: Leave disabled <br>
 Hardened profiles: Enable (Relaxed Mode) if you're okay with reporting false positives.
 
@@ -175,12 +177,12 @@ Hardened profiles: Enable (Relaxed Mode) if you're okay with reporting false pos
 *Enable for Kids profile.*
 
 ### DNS Rebind Protection
-Enable.
+![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
 [DNS Rebind Protection](https://help.nextdns.io/t/35hmval/what-is-dns-rebinding-protection) prevents malicious requests from bypassing security measures on your device. For example, if you visit `google.com` and it resolves to a private IP address like `10.0.0.1`, DNS Rebind Protection would block access. This stops attackers from using rebinding techniques to access private networks and endpoints that should not be publicly reachable.
 
 ### Disable DNSSEC
-Enable
+![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
 :warning: DNSSEC makes things slower, and breaks some sites.
 
@@ -192,7 +194,7 @@ Control D also [states](https://discord.com/channels/1035992466203099147/1037876
 
 ### TTL
 
-Enable
+![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
 :bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
 
