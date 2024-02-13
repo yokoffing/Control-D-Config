@@ -194,7 +194,9 @@ Hardened profiles: Enable (Relaxed Mode) if you're okay with reporting false pos
 
 [DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are coupled together in the settings.
 
-An argument can be made that using DoH alone does not eliminate the need for DNSSEC to validate DNS data integrity. However, when using DOH / DOT / DOQ protocols through a service like Control D, which can manipulate DNS records based on user-defined rules, there is little benefit to also enabling DNSSEC validation. Control D sits between the user and the upstream DNS servers, giving it full control over the records, reducing the value of DNSSEC's authentication.
+An argument can be made that using DoH alone does not eliminate the need for DNSSEC to validate DNS data integrity. However, when using DOH / DOT / DOQ protocols through a service like Control D, which can manipulate DNS records based on user-defined rules, there is little benefit to also enabling DNSSEC validation.
+
+Control D sits between the user and the upstream DNS servers, giving it full control over the records, reducing the value of DNSSEC's authentication.
 
 Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC requires a separate DNS resolver and cache, which impacts performance.
 
@@ -202,11 +204,9 @@ Control D also [states](https://discord.com/channels/1035992466203099147/1037876
 
 ![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
-:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
+Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
 
 There are three TTLs that you can tweak in Profile Options. You can set values for [Block TTL](https://docs.controld.com/docs/ttl-overrides#block-ttl), [Redirect TTL](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [Bypass TTL](https://docs.controld.com/docs/ttl-overrides#bypass-ttl).
-
-Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
 
 Below are common values to use for DNS caching, measured in seconds.
 
@@ -218,7 +218,6 @@ Below are common values to use for DNS caching, measured in seconds.
 | `28800` | 8 hours   |
 | `86400` | 24 hours  |
 
-:warning: Do not set any higher than 24 hours.
+:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
 
-### Disable
-Use the dropdown in the UI to temporarily disable Control D services.
+:warning: Do not set higher than 24 hours.
