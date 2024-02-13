@@ -113,8 +113,6 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 
 <sup> *Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 
-:star: Congrats! By using these handful of filters, you are significantly better off than most internet users.
-
 <details><summary>Toggle me if you prefer to only use Native filters:</summary>
 
 | Build                             | Native                                                                                                                                                | 3rd Party |
@@ -123,6 +121,8 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 | **Hardened (native only)** | Ads & Trackers (Balanced) <br> Dynamic DNS <br> IoT Telemetry (for non-desktops) <br> Malware (Balanced) <br> New Domains <br> Phishing |           |
 
 </details>
+
+:star: Congrats! By using these filters, you are significantly better off than most internet users.
 
 ### Other suggestions
 
@@ -173,13 +173,18 @@ Advanced users may also want to add a folder for [TLDs](https://github.com/yokof
 ## :gear: Profiles Options 
 ### AI Malware Filter
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
 Relaxed profiles: Leave disabled <br>
 Hardened profiles: Enable (Relaxed Mode) if you're okay with reporting false positives.
 
 ### Safe Search
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
 *Enable for Kids profile.*
 
 ### Restricted Youtube
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
 *Enable for Kids profile.*
 
 ### DNS Rebind Protection
@@ -190,15 +195,15 @@ Hardened profiles: Enable (Relaxed Mode) if you're okay with reporting false pos
 ### Disable DNSSEC
 ![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
-:warning: DNSSEC makes things slower, and breaks some sites.
+:bulb: Control D sits between the user and the upstream DNS servers, giving it full control over the DNS records. This reduces the value of DNSSEC's authentication.
 
-[DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are coupled together in the settings.
+:warning: DNSSEC also makes things slower, and breaks some sites.
 
 An argument can be made that using DoH alone does not eliminate the need for DNSSEC to validate DNS data integrity. However, when using DOH / DOT / DOQ protocols through a service like Control D, which can manipulate DNS records based on user-defined rules, there is little benefit to also enabling DNSSEC validation.
 
-Control D sits between the user and the upstream DNS servers, giving it full control over the records, reducing the value of DNSSEC's authentication.
+Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC* requires a separate DNS resolver and cache, which impacts performance.
 
-Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC requires a separate DNS resolver and cache, which impacts performance.
+<sup>* At this time, [DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are grouped together in this settings.</sup>
 
 ### TTL
 
