@@ -15,7 +15,7 @@ Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
 ### Create a profile
 
-To create a profile, select the big green `+` button at https://controld.com/dashboard/devices.
+To create a profile, select the big green `+` button at https://controld.com/dashboard/profiles.
 
 You'll be asked for a **Profile Name** and given a list of **Options**. See [Profile Options](https://github.com/yokoffing/Control-D-Config#profile-options) to decide which ones to enable.
 
@@ -46,15 +46,17 @@ You get the idea.
 
 # Devices
 
-Every **Device** is connected to a **Profile**.
+Every **Device** is assigned to a **Profile**.
+
+### Create a device
 
 To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use.
 
 ### Organizing devices
 
-Add as many as you'd like. For instance, I have a Device option for each web browser I use, and one for my phone, computer, smart TV, and router.
+Add as many as you'd like. I have a device option for each web browser I use, and one for my phone, computer, smart TV, and router.
 
-Let's use the profile names from a moment ago. You might have:
+Let's use the profile names from earlier. You might have:
 
 | **Device Name** | **Enforced Profile** |
 |-----------------|----------------------|
