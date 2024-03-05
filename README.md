@@ -14,7 +14,7 @@
 4) Customizations
     * Filters
         * Recommendations 
-    * Services (TBD)
+    * Services
     * Custom Rules
     * Profiles Options
 5) Multiple Devices and Profiles
@@ -119,7 +119,34 @@ Control D's Malware filter ([Balanced](https://docs.controld.com/docs/malware#re
 
 ## Services
 
-*N/A for now*
+[Services](https://docs.controld.com/docs/services) allows you to customize blocking and allowing sites and apps at a granular level.
+
+To access Services, go to https://controld.com/dashboard/profiles > Edit > Services.
+
+### Easy exceptions
+You can use Services to create easy exceptions.
+
+For example, let's say you want to block all social media except Instagram:
+1) Enable the Social filter on your Profile to block all social media sites (Profile > Edit > Filters > Social).
+2) Go to Services (Profiles > Edit > Services).
+3) Open the Social category and toggle Instagram.
+4) Create a [Bypass](https://docs.controld.com/docs/custom-rules#bypass) rule to allow Instagram.
+
+Now you can still access Instagram while blocking other social media services.
+
+### Targeted blocking
+
+Alternatively, you can use Services to block only specific social media sites rather than the whole category.
+
+In this scenario, you only want to block TikTok and Facebook:
+1) Go to Services (Profiles > Edit > Services).
+2) Open the Social category and toggle Facebook.
+3) This will allow you to create a [Block](https://docs.controld.com/docs/custom-rules#block) rule to block Facebook.
+4) Repeat 2 and 3 for TikTok.
+
+This way, you can still access all social media companies except Facebook and TikTok.
+
+As you can see, Services help you tailor your blocking to your specific needs, and it's easier than hunting down and copying + pasting URLs to your Custom Rules.
 
 ***
 
