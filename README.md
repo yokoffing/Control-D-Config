@@ -3,43 +3,37 @@
 2) Pass the [girlfriend test](https://urbandictionary.com/define.php?term=Grandma%20Test) with few exceptions. These deviations are documented throughout the guide.
 
 ***
+
+# Contents
+
+1) Sign up
+2) Profiles
+    * Create a profile 
+3) Devices
+    * Create a device 
+4) Customizations
+    * Filters
+        * Recommendations 
+    * Services (TBD)
+    * Custom Rules
+    * Profiles Options
+5) Multiple Devices and Profiles
+    * Organizing profiles
+    * Organizing devices
+
+***
+
 # Sign up
 
 [Create an account](https://controld.com/personal/), or take advantage of Control D's [free resolvers](https://controld.com/free-dns).
 
 ***
 
-# Contents
-
-1) Profiles
-    * Create a profile 
-    * Organizing profiles  
-2) Devices
-    * Create a profile 
-    * Organizing devices
-3) Customizations
-    * Filters
-        * Native
-        * 3rd Party
-        * Recommendations 
-    * Services (TBD)
-    * Custom Rules
-        * Allowlist
-        * Denylst 
-    * Profiles Options
-        * AI Malware Filter
-        * Safe Search
-        * Restricted YouTube
-        * DNS Rebind Protection
-        * Disable DNSSEC
-        * TTL
-
-
-***
-
 # Profiles
 
-When an account is created, there will always be a Profile, either one of the "Starting Profiles" that have some example rules, or a Blank Profile. 
+Once you create an account, you will have a [Profile](https://docs.controld.com/docs/profiles). This will either be one of the pre-made profiles with example rules or a blank customizable profile.
+
+:bulb: Since your Profile already exists when you create a new account, you only need to create your first [Device](https://docs.controld.com/docs/devices) and enforce this Profile to get up and running. This automatically generates the DNS resolvers while keeping things simple — associating one Profile to one Device.
 
 Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
@@ -49,57 +43,17 @@ To create a profile, select the big green `+` button at https://controld.com/das
 
 You'll be asked for a **Profile Name** and given a list of **Options**. See [Profile Options](https://github.com/yokoffing/Control-D-Config#profile-options) to decide which ones to enable.
 
-### Organizing profiles
-
-This is where you can get creative. What you name the profiles doesn't matter much; what matters is the options you will enable with each profile.
-
-For example, you may create two profiles, and then later link devices to one of the two profiles:
-
-1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
-2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
-
-Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
-
-If you have kids, you might have:
-
-1. **Administrator** (you the administrator; stronger settings)
-2. **Adults** (spouse, grandparents; slightly relaxed settings)
-3. **Kids** (with parental controls active)
-
-Or a combination of the two approaches:
-1. **Hardened:** heightened security and privacy options, since you're maintaining the DNS and don't mind troubleshooting (for web browsers, computer, smartphone)
-2. **Relaxed:** balance of security and privacy options (for smart TV, your spouse's devices)
-3. **Kids:** same as Relaxed but with parental controls active
-4. **Basic:** legacy resolver, security options, but minimal privacy filters (for router)
-
-You get the idea.
-
 # Devices
 
 **Devices** enforce **profiles**. Every device is assigned to a profile.
-
-If desired, Control D allows enforcing two profiles on a single device. [Multiple linked profiles](https://docs.controld.com/docs/multiple-enforced-profiles) allow you to enforce rules from two profiles simultaneously when using a device.
 
 ### Create a device
 
 To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use.
 
-### Organizing devices
+When adding a new Device, you must select its type from one of the following categories: desktop or mobile OS, smart TV OS, web browser, or router.
 
-Add as many as you'd like. I have a device option for each web browser I use, and one for my phone, computer, smart TV, and router.
-
-Let's use the profile names from earlier. You might have:
-
-| **Device Name** | **Enforced Profile** |
-|-----------------|----------------------|
-| Firefox         | Hardened             |
-| Chrome          | Hardened             |
-| iPhone          | Hardened             |
-| Wife's iPhone   | Relaxed              |
-| Wife's Mac      | Relaxed              |
-| Susie's iPad    | Kids                 |
-| Living Room TV  | Basic                |
-| Router          | Basic                |
+While the device type does not impact the assigned DNS resolvers, it determines the setup guide and automatic configuration steps displayed later. The automated setup is recommended for most beginners.
 
 ***
 
@@ -246,3 +200,50 @@ Below are common values to use for DNS caching, measured in seconds.
 :bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
 
 :warning: Do not set higher than 24 hours.
+
+***
+
+# Multiple Devices and Profiles
+## Organizing profiles
+
+This is where you can get creative. What you name the profiles doesn't matter much; what matters is the options you will enable with each profile.
+
+For example, you may create two profiles, and then later link devices to one of the two profiles:
+
+1. **Hardened** (for web browsers, computer, smartphone): more nuanced protection with greater risk of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+2. **Relaxed** (for router, smart TV): [set-and-forget](https://glosbe.com/en/en/set-and-forget); low chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+Are you managing DNS for just you? Then you may need only one or two profiles. Your family? Then maybe three or four profiles.
+
+If you have kids, you might have:
+
+1. **Administrator** (you the administrator; stronger settings)
+2. **Adults** (spouse, grandparents; slightly relaxed settings)
+3. **Kids** (with parental controls active)
+
+Or a combination of the two approaches:
+1. **Hardened:** heightened security and privacy options, since you're maintaining the DNS and don't mind troubleshooting (for web browsers, computer, smartphone)
+2. **Relaxed:** balance of security and privacy options (for smart TV, your spouse's devices)
+3. **Kids:** same as Relaxed but with parental controls active
+4. **Basic:** legacy resolver, security options, but minimal privacy filters (for router)
+
+You get the idea.
+
+### Organizing devices
+
+Add as many as you'd like. I have a device option for each web browser I use, and one for my phone, computer, smart TV, and router.
+
+Let's use the profile names from earlier. You might have:
+
+| **Device Name** | **Enforced Profile** |
+|-----------------|----------------------|
+| Firefox         | Hardened             |
+| Chrome          | Hardened             |
+| iPhone          | Hardened             |
+| Wife's iPhone   | Relaxed              |
+| Wife's Mac      | Relaxed              |
+| Susie's iPad    | Kids                 |
+| Living Room TV  | Basic                |
+| Router          | Basic                |
+
+If desired, Control D allows enforcing two profiles on a single device. [Multiple linked profiles](https://docs.controld.com/docs/multiple-enforced-profiles) allow you to enforce rules from two profiles simultaneously when using a device.
