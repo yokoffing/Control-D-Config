@@ -9,7 +9,37 @@
 
 ***
 
+# Contents
+
+1) Profiles
+    * Create a profile 
+    * Organizing profiles  
+2) Devices
+    * Create a profile 
+    * Organizing devices
+3) Customizations
+    * Filters
+        * Native
+        * 3rd Party
+        * Recommendations 
+    * Services (TBD)
+    * Custom Rules
+        * Allowlist
+        * Denylst 
+    * Profiles Options
+        * AI Malware Filter
+        * Safe Search
+        * Restricted YouTube
+        * DNS Rebind Protection
+        * Disable DNSSEC
+        * TTL
+
+
+***
+
 # Profiles
+
+When an account is created, there will always be a Profile, either one of the "Starting Profiles" that have some example rules, or a Blank Profile. 
 
 Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
@@ -46,7 +76,9 @@ You get the idea.
 
 # Devices
 
-Every **Device** is assigned to a **Profile**.
+**Devices** enforce **profiles**. Every device is assigned to a profile.
+
+If desired, Control D allows enforcing two profiles on a single device. [Multiple linked profiles](https://docs.controld.com/docs/multiple-enforced-profiles) allow you to enforce rules from two profiles simultaneously when using a device.
 
 ### Create a device
 
@@ -71,7 +103,7 @@ Let's use the profile names from earlier. You might have:
 
 ***
 
-## :receipt: Filters
+## Filters
 
 :bulb: A few well-chosen filters provide comprehensive protection.
 
@@ -130,7 +162,7 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 
 ***
 
-## :hammer: Custom Rules
+## Custom Rules
 
 Custom Rules allow you to add sites by Domain or by Folder. To keep thing tidy, setup two folders, and then add domains as needed to them.
 
@@ -159,7 +191,7 @@ Domains added to the **Denylist** folder entries are always blocked.
 Advanced users may also want to add a folder for [TLDs](https://github.com/yokoffing/NextDNS-Config#block-top-level-domains-tlds-1-2-3-4-5-) with a folder rule of **Block**.
 ***
 
-## :gear: Profiles Options 
+## Profiles Options 
 ### AI Malware Filter
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
 
