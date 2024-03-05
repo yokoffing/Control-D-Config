@@ -8,18 +8,19 @@
 
 1) Sign up
 2) Profiles
-    * Create a profile 
 3) Devices
-    * Create a device 
 4) Customizations
     * Filters
         * Recommendations 
     * Services
     * Custom Rules
     * Profiles Options
-5) Multiple Devices and Profiles
-    * Organizing profiles
-    * Organizing devices
+5) Advanced Users
+    * Multiple Devices and Profiles
+    * Import & Export Folders
+    * Spoofing/Redirecting domains
+    * Wild cards
+    * Geo custom rules
 
 ***
 
@@ -56,6 +57,7 @@ When adding a new Device, you must select its type from one of the following cat
 While the device type does not impact the assigned DNS resolvers, it determines the setup guide and automatic configuration steps displayed later. The automated setup is recommended for most beginners.
 
 ***
+# Customizations
 
 ## Filters
 
@@ -152,31 +154,38 @@ As you can see, Services help you tailor your blocking to your specific needs, a
 
 ## Custom Rules
 
-Custom Rules allow you to add sites by Domain or by Folder. To keep thing tidy, setup two folders, and then add domains as needed to them.
+[Custom Rules](https://docs.controld.com/docs/custom-rules) allows you to organize domains into groups.
 
-For simplicity, I advise that you create two folders: an **Allowlist** folder and a **Denylist** folder.
+To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
-### Allowlist
+### Logical groups
+You can create folders to categorize domains, then apply [rules](https://docs.controld.com/docs/services#service-rules) to those domains.
+
+### Action folders
+Alternatively, you can assign [one rule to an entire folder](https://docs.controld.com/docs/folder-rules#action-folders). That rule will then apply to all domains within that folder.
+
+I advise that you do this when creating two folders, an **Allowlist** and a **Denylist**, and then add domains to them as needed.
+
+#### Allowlist
 Domains added to the **Allowlist** folder will always resolve.
 
-#### Create folder
+To create an allowlist:
 1. Under the desired profile, add the folder by clicking the big green `+` button.
 2. Select **Folder**.
 3. Under **Folder Name**, type `Allowlist`.
 4. Toggle **Folder Rule**.
 5. Under **Select Rule**, select the middle option **[Bypass](https://docs.controld.com/docs/custom-rules#bypass)**.
 
-### Denylist
+#### Denylist
 Domains added to the **Denylist** folder entries are always blocked.
 
-#### Create folder
+To create an denylist:
 1. Under the desired profile, add the folder by clicking the big green `+` button.
 2. Select **Folder**.
 3. Under **Folder Name**, type `Denylist`.
 4. Toggle **Folder Rule**.
 5. Under **Select Rule**, make sure **[Block](https://docs.controld.com/docs/custom-rules#block)** is selected.
 
-Advanced users may also want to add a folder for [TLDs](https://github.com/yokoffing/NextDNS-Config#block-top-level-domains-tlds-1-2-3-4-5-) with a folder rule of **Block**.
 ***
 
 ## Profiles Options 
@@ -236,9 +245,9 @@ Below are common values to use for DNS caching, measured in seconds.
 :warning: Do not set higher than 24 hours.
 
 ***
-
-# Multiple Devices and Profiles
-## Organizing profiles
+# Advanced Users
+## Multiple Devices and Profiles
+### Organizing profiles
 
 This is where you can get creative. What you name the profiles doesn't matter much; what matters is the options you will enable with each profile.
 
@@ -283,3 +292,31 @@ Let's use the profile names from earlier. You might have:
 | Router          | Basic                |
 
 If desired, Control D allows enforcing two profiles on a single device. [Multiple linked profiles](https://docs.controld.com/docs/multiple-enforced-profiles) allow you to enforce rules from two profiles simultaneously when using a device.
+
+## Import & Export Folders
+### Import
+Control D allows you to import and export folders from other users under Custom Rules.
+
+#### TLDs
+You may want to add a folder for [TLDs](https://webtribunal.net/blog/tld-statistics).
+
+You can import folders by clicking the `...` icon and selecting **Upload Folder**.
+
+[Hagezi](https://github.com/hagezi/dns-blocklists) has [compiled folders](https://github.com/hagezi/dns-blocklists/tree/main/controld) that can be imported, such as:
+
+* [Spam TLDs folder](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
+* [Spam TLDs Allow folder](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
+
+To import a list above:
+1) Click the link.
+2) On Github, select the `...` button in the top-right corner.
+3) Click **Download**.
+4) On Control D - Custom Rules, select the `...` icon.
+5) Click **Upload Folder**.
+
+### Export
+You can export your folder by clicking the `...` button in a folder and selecting **Download Rules**.
+
+## Spoofing/Redirecting domains
+## Wild cards
+## Geo custom rules
