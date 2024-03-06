@@ -65,7 +65,7 @@ While the device type does not impact the assigned DNS resolvers, it determines 
 
 :warning: Since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
 
-Filters, or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
+[Filters](https://docs.controld.com/docs/filters), or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
 
 All filters are updated every 15-30 minutes.
 
@@ -94,24 +94,23 @@ The second build, **Hardened**, increases defenses against trackers and maliciou
 
 | Build               | Native                                                             | 3rd Party                                       |
 |---------------------|--------------------------------------------------------------------|-------------------------------------------------|
-| **Relaxed**  | Malware (Balanced) <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware (Strict) <br> New Domains * <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
+| **Relaxed**  | Malware (Balanced)<sup>1</sup> <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
+| **Hardened** | Dynamic DNS <br> Malware (Strict)<sup>1</sup> <br> New Domains<sup>2</sup> <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
 
-<sup> * Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
+<sup> **1** [Balanced](https://docs.controld.com/docs/malware#relaxed) and [Strict](https://docs.controld.com/docs/malware#strict) mode blocks malicious domains [effectively](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/), but they may cause false positives. Switch to [Relaxed](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
-:memo: Control D recommends using their Malware Filter in [Balanced](https://docs.controld.com/docs/malware#relaxed) or [Strict](https://docs.controld.com/docs/malware#strict) mode. While these modes can [effectively](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/) catch and block more malicious domains, they also have a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive). If you find that false positives are disrupting your browsing frequently, you may want to drop down to [Relaxed](https://docs.controld.com/docs/malware#relaxed) mode.
+<sup> **2** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
+
 <p> </p>
 
 <details><summary>Toggle me if you prefer to only use Native filters:</summary>
 
 | Build                             | Native                                                                                                                                                | 3rd Party |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Relaxed (native only)**  | Ads & Trackers (Relaxed) <br> Malware (Balanced) <br> Phishing                                                                                         |           |
-| **Hardened (native only)** | Ads & Trackers (Balanced) <br> Dynamic DNS <br> IoT Telemetry (for non-desktops) <br> Malware (Strict) <br> New Domains <br> Phishing |           |
+| **Relaxed (native only)**  | Ads & Trackers (Relaxed) <br> Malware (Balanced)<sup>1</sup> <br> Phishing                                                                                         |           |
+| **Hardened (native only)** | Ads & Trackers (Balanced) <br> Dynamic DNS <br> IoT Telemetry (for non-desktops) <br> Malware (Strict)<sup>1</sup> <br> New Domains <br> Phishing |           |
 
-:memo: Control D recommends using their Malware Filter in [Balanced](https://docs.controld.com/docs/malware#relaxed) or [Strict](https://docs.controld.com/docs/malware#strict) mode. While these modes can [effectively](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/) catch and block more malicious domains, they also have a higher chance of falsely identifying safe sites as unsafe (known as [false positives](https://csrc.nist.gov/glossary/term/false_positive)). If you find that false positives are disrupting your browsing frequently, you may want to drop down to [Relaxed](https://docs.controld.com/docs/malware#relaxed) mode.
-
-Control D's Malware filter ([Balanced](https://docs.controld.com/docs/malware#relaxed) and [Strict](https://docs.controld.com/docs/malware#strict) mode) are recommended here by the company itself. While these modes are [effective](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/) (they have a higher chance of it catching and blocking a malicious domain), you are more likely to experience [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+<sup> **1** [Balanced](https://docs.controld.com/docs/malware#relaxed) and [Strict](https://docs.controld.com/docs/malware#strict) mode blocks malicious domains [effectively](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/), but they may cause false positives. Switch to [Relaxed](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
 </details>
 
