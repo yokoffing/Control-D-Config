@@ -159,7 +159,7 @@ As you can see, Services help you tailor your blocking to your specific needs, a
 To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
 ### Logical groups
-You can create folders to categorize domains, then apply [rules](https://docs.controld.com/docs/services#service-rules) to those domains.
+You can create folders to categorize domains, then apply [rules](https://docs.controld.com/docs/custom-rules#rule-actions) to those domains.
 
 ### Action folders
 Alternatively, you can assign [one rule to an entire folder](https://docs.controld.com/docs/folder-rules#action-folders). That rule will then apply to all domains within that folder.
