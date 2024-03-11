@@ -321,15 +321,13 @@ To import a list above:
 You can export your folder by clicking the `...` button in a folder and selecting **Download Rules**.
 
 ## Wildcard rules
-[Wildcard rules](https://docs.controld.com/docs/custom-rules#rule-format) allow you to block a wide spectrum of domains without listing them separately. This format is what Control D uses in their blocklists.
+[Wildcard rules](https://docs.controld.com/docs/custom-rules#rule-format) allow you to [block](https://docs.controld.com/docs/custom-rules#block) a wide spectrum of domains without listing them separately. This format is what Control D uses in their blocklists.
 
-Control D can block subdomains by adding wildcards like `*.example.com` to your Denylist. This will be converted to a regex expression automatically (e.g. `(^|.)example.com$`) to match subdomains.
+Control D can block subdomains by adding wildcards like `*.domain.com` to your Denylist. Blocking `*.domain.com` prevents access to all subdomains of `domain.com` without blocking the root domain itself.
 
-This blocks all subdomains of `domain.com`, but NOT `domain.com`. For example, you can block `*.analytics.com` to block all subdomains of `analytics.com`. 
+For instance, adding `*.analytics.com` to the Denylist stops requests to subdomains like `tracking.analytics.com` or `metrics.analytics.com` while still allowing access to the main `analytics.com` site.
 
-Utilize the [block](https://docs.controld.com/docs/custom-rules#block) rule when creating wildcards.
-
-To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+:world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
 ## Spoofing location
 
