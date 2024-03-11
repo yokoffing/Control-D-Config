@@ -335,7 +335,9 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
 
 Location spoofing may provide you with privacy benefits by hiding your real location. Control D goes a step further by incorporating proxy functionality.
 
-You can unlock geo-restricted services by leveraging DNS-based traffic redirection. This allows users to route their internet traffic through servers in different locations, enabling them to bypass geo-restrictions and access content that may be blocked in their region. You can then view a broader range of content, such as different Netflix libraries, that would otherwise be unavailable due to licensing restrictions.
+Control D allows you to unlock geo-restricted services by leveraging DNS-based traffic redirection. This allows users to route their internet traffic through servers in different locations, enabling them to bypass geo-restrictions and access content that may be blocked in their region.
+
+You can then view a broader range of content, such as different Netflix libraries, that would otherwise be unavailable due to licensing restrictions.
 
 <details> <summary>:warning: Technical Limitations </summary>
    
@@ -350,7 +352,6 @@ You can unlock geo-restricted services by leveraging DNS-based traffic redirecti
 |:------------:|:------------------:|:---------------:|
 | Audio        | Apple Music        | Dallas, US      |
 | News         | The New York Times | New York, US    |
-| Video        | Netflix            | London, GB      |
 | Video        | BBC iPlayer        | London, GB      |
 
 ### Instructions
@@ -366,8 +367,6 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 
 [Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries.
 
-GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). For better understanding, I've divided these rules into outbound and inbound requests.
-
 ### Create a folder (optional)
 I recommend you put all these rules in their own folder:
 1. To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
@@ -375,6 +374,8 @@ I recommend you put all these rules in their own folder:
 3. Select **Folder**.
 4. Under **Folder Name**, type `Geo Custom Rules`.
 5. Click **Add Folder**.
+
+GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). For better understanding, I've divided these rules into outbound and inbound requests.
 
 ### Outbound Requests
 Outbound rules indicate the destination country that the domain resolves to.
