@@ -363,64 +363,57 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 3) Select the third icon (globe).
 4) Choose a proxy location.
 
-## Geo Custom Rules (beta)
+## Geo Custom Rules
+:warning: This feature is still in beta.
 
-[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCR) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries. GCRs work similarly to standard custom rules but leverage location data associated with source and destination IPs.
+[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCR) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries.
 
-GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
-
-| **Symbol**   | **Definition**          |
-|--------------|-------------------------|
-| `@`          | destination country     |
-| `!@`         | NOT destination country |
-| `#`          | source country          |
-| `!#`         | NOT source country      |
-
-For better understanding, I've divided these rules into outbound and inbound requests.
+GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). For better understanding, I've divided these rules into outbound and inbound requests.
 
 ### Outbound Requests
 Outbound rules indicate the destination country that the domain resolves to.
 
-| **Example**             | **Rationale**                                                                        |
-|-------------------------|--------------------------------------------------------------------------------------|
-|       `@CN`             | This will match if a queried domain **resolves** to a Chinese IP address.            |
-|       `!@CN`            | This will match if the DNS query **does not resolve** to a Chinese IP address.       |
-
-#### Example
-
-:bulb: `@` indicates checking the destination country that the domain resolves to.
-
-Let's say I don't want to accidentally go to a Russian or Chinese site. I want to block DNS queries to domains that resolve to servers in countries with known cybersecurity threats like Russia or China. I would create the following two rules: `@RU` and `@CN` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule.
+| **Symbol**   | **Definition**                                               |
+|--------------|--------------------------------------------------------------|
+| `@`          | A queried domain **resolves** to a destination country.      |
+| `!@`         | The DNS query **does not resolve** to a destination country. |
 
 ### Inbound Requests
-Inbound rules focuses on the source country that a domain originates from. 
+Inbound rules focus on the source country that a domain originates from. 
 
-| **Example**            | **Rationale**                                                                        |
-|------------------------|--------------------------------------------------------------------------------------|
-|       `#US`            | This will match if a queried domain **originates** from an American IP address.      |
-|       `!#US`           | This will match if the DNS query **does not originate** from an American IP address. |
+| **Symbol**   | **Definition**                                                             |
+|--------------|----------------------------------------------------------------------------|
+| `#`          | A queried domain **originates** from a source country IP address.          |
+| `!#`         | The DNS query **does not originate** from a source country IP address.     |
 
-#### Example
+### Examples
+I want to **block** DNS queries to domains that resolve to servers in countries with known cybersecurity threats like Russia or China. I would create the following two rules: `@RU` and `@CN` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions from the those domains.
 
-:bulb: `#` indicates checking the source country that the DNS query originates from.
+| **Rule** | **Symbol** | **Country** | **Description**                                                        |
+|----------|------------|-------------|------------------------------------------------------------------------|
+| Block    | `@`        | `RU`        | Block DNS queries to domains that resolve to domains in Russia.        |
+| Block    | `@`        | `CN`        | Block DNS queries to domains that resolve to domains in China.         |
 
-Using the same example, I want to allow DNS queries from domains that originate from the United States and Canada. I would create the following rules: `#US` and `#CA` both with a [bypass](https://docs.controld.com/docs/geo-custom-rules#bypass) rule, to allow the resolutions to process normally.
+I want to **allow** DNS queries from domains that originate from the United States and Canada. I would create the following rules: `#US` and `#CA` both with a [bypass](https://docs.controld.com/docs/geo-custom-rules#bypass) rule, to allow the resolutions to process normally.
 
+| **Rule** | **Symbol** | **Country** | **Description**                                                        |
+|----------|------------|-------------|------------------------------------------------------------------------|
+| Bypass   | `#`        | `US`        | Allow DNS queries from the United States to process normally.          |
+| Bypass   | `#`        | `CA`        | Allow DNS queries from Canada to process normally.                     |
+
+But let's say you're a real glutton for punishment and want to really limit your network connections to the US and Canada **only**. You would use `!#US` and `!#CA` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions to domains outside of these countries. In other words, American and Canadian domains resolve normally, while other countries' domains are blocked.
+
+| **Rule** | **Symbol** | **Country** | **Description**                                                        |
+|----------|------------|-------------|------------------------------------------------------------------------|
+| Block    | `!#`       | `US`        | US domains resolve normally, but other countries' domains are blocked. |
+| Block    | `!#`       | `CA`        | CA domains resolve normally, but other countries' domains are blocked. |
+
+:warning: Control D can underestand multiple `!#` block rules, if you want to limit your DNS resolutions to specific countries. However, you should not [mix-and-match](https://docs.controld.com/docs/geo-custom-rules#this-is-not-ok) block and bypass rules with `!@` and `!#` formats.
+
+### Create a folder (optional)
 :world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
-### Instructions
-
-#### Create a folder (optional)
 1. Under the desired profile, add the folder by clicking the big green `+` button.
 2. Select **Folder**.
 3. Under **Folder Name**, type `Geo Custom Rules`.
-
-#### Create a rule
-For this example, let's say that I don't want to connect to any Chinese IP addresses. I will need the `@` symbol (we're specifying the destination country), the two-letter ISO country code (CN), and the [block](https://docs.controld.com/docs/geo-custom-rules#block) rule.
-1. Select a folder.
-2. Add a rule by clicking the big green `+` button.
-3. Under **Domain**, type `@CN`.
-4. Select the first icon, **Block**, to prevent a domain resolving to a Chinese IP address.
-5. Click **Add Rule**.
-
-If I didn't want to receive any requests from a a Chinese IP address, I'd do the same steps but use the `#` symbol.
+4. Click **Add Folder**.
