@@ -370,14 +370,13 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 
 GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). For better understanding, I've divided these rules into outbound and inbound requests.
 
-:world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
-
 ### Create a folder (optional)
 I recommend you put all these rules in their own folder:
-1. Under the desired profile, add the folder by clicking the big green `+` button.
-2. Select **Folder**.
-3. Under **Folder Name**, type `Geo Custom Rules`.
-4. Click **Add Folder**.
+1. To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+2. Under the desired profile, add the folder by clicking the big green `+` button.
+3. Select **Folder**.
+4. Under **Folder Name**, type `Geo Custom Rules`.
+5. Click **Add Folder**.
 
 ### Outbound Requests
 Outbound rules indicate the destination country that the domain resolves to.
@@ -425,10 +424,10 @@ Let's assume you only want to **block** DNS queries to domains that resolve to s
 
 You would create the following two rules `@RU` and `@CN` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions from the those domains.
 
-| **Rule** | **Symbol** | **Country** | **Description**                                                        |
-|----------|------------|-------------|------------------------------------------------------------------------|
-| Block    | `@`        | `RU`        | Block DNS queries to domains that resolve to domains in Russia.        |
-| Block    | `@`        | `CN`        | Block DNS queries to domains that resolve to domains in China.         |
+| **Rule** | **Symbol** | **Country** | **Description**                                             |
+|----------|------------|-------------|-------------------------------------------------------------|
+| Block    | `@`        | `RU`        | Block DNS queries that resolve to domains in Russia.        |
+| Block    | `@`        | `CN`        | Block DNS queries that resolve to domains in China.         |
 
 #### 4) Spoof country location
 Similar to spoofing locations for Services, you can use a [redirect](https://docs.controld.com/docs/geo-custom-rules#redirect) rule spoof any country's domain via a proxy location.
