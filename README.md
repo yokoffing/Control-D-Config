@@ -18,8 +18,8 @@
 5) Advanced Users
     * Multiple Devices and Profiles
     * Import & Export Folders
-    * Spoofing/Redirecting domains
     * Wild cards
+    * Spoofing location
     * Geo custom rules
 
 ***
@@ -185,6 +185,8 @@ To create an denylist:
 4. Toggle **Folder Rule**.
 5. Under **Select Rule**, make sure **[Block](https://docs.controld.com/docs/custom-rules#block)** is selected.
 
+:memo: Note that Control D disables iCloud Private Relay by default [read more](https://docs.controld.com/docs/icloud-private-relay).
+
 ***
 
 ## Profiles Options 
@@ -292,6 +294,8 @@ Let's use the profile names from earlier. You might have:
 
 If desired, Control D allows enforcing two profiles on a single device. [Multiple linked profiles](https://docs.controld.com/docs/multiple-enforced-profiles) allow you to enforce rules from two profiles simultaneously when using a device.
 
+:bulb: You can read more on advance rule logic in the [docs](https://docs.controld.com/docs/advanced-rules-creation-guide).
+
 ## Import & Export Folders
 ### Import
 Control D allows you to import and export folders from other users under Custom Rules.
@@ -316,6 +320,43 @@ To import a list above:
 ### Export
 You can export your folder by clicking the `...` button in a folder and selecting **Download Rules**.
 
-## Spoofing/Redirecting domains
 ## Wild cards
-## Geo custom rules
+To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+
+## Spoofing location
+
+A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all domains associated with a [service](https://docs.controld.com/docs/services) to a location or IP address you specify.
+
+Location spoofing may provide you with privacy benefits by hiding your real location. Control D goes a step further by incorporating proxy functionality.
+
+You can unlock geo-restricted services by leveraging DNS-based traffic redirection. This allows users to route their internet traffic through servers in different locations, enabling them to bypass geo-restrictions and access content that may be blocked in their region. You can then view a broader range of content, such as different Netflix libraries, that would otherwise be unavailable due to licensing restrictions.
+
+Control D provides a simple and effective way to unlock geo-restricted services and enhance online privacy by leveraging DNS-based traffic redirection.
+
+<details> <summary>:warning: Technical Limitations :warning: </summary>
+   
+* Websites or apps employing legacy security protocols might not be accessible when attempting to bypass geo-restrictions. The [redirect](https://docs.controld.com/docs/services#redirect) rule requires Server Name Indication (SNI), which is not supported in these older standards. This prevents the bypassing method from functioning as intended.
+* Currently, the unencrypted SNI allows ISPs and network admins to see your visited sites when analyzing traffic with Deep Packet Inspection (DPI). [Encrypted Client Hello](https://github.com/yokoffing/Betterfox/blob/14de7b101d48f15f50df7dd5dbfffefca5b4a855/Securefox.js#L725-L729) (ECH) is coming but it's not widely used yet.
+   
+</details>
+
+### Examples
+
+| **Category** |     **Service**    | **Destination** |
+|:------------:|:------------------:|:---------------:|
+| Audio        | Apple Music        | Dallas, US      |
+| News         | The New York Times | New York, US    |
+| Video        | Netflix            | London, GB      |
+| Video        | BBC iPlayer        | London, GB      |
+
+### Instructions
+1) To access Services, go to https://controld.com/dashboard/profiles > Edit > Services.
+2) Choose a category.
+3) Select the third icon (globe).
+4) Choose a proxy location.
+
+## Geo Custom Rules
+
+To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+
+[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCR)
