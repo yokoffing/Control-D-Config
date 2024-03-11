@@ -369,15 +369,42 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 
 GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
 
-`@` - destination country
-`#` - source country
-`!@` - NOT destination country
-`!#` - NOT source country
+| **Symbol**   | **Definition**          |
+|--------------|-------------------------|
+| `@`          | destination country     |
+| `!@`         | NOT destination country |
+| `#`          | source country          |
+| `!#`         | NOT source country      |
 
-@CN - This will match if a queried domain resolves to a Chinese IP address.
-#CA - This will match if the DNS query originates from a Canadian IP address.
-!@US - This will match if the queried domain does **not** resolve to a US IP address.
-!#DE - This will match if the DNS query does **not** originate from a German IP address.
+For better understanding, I've divided these rules into outbound and inbound requests.
+
+### Outbound Requests
+Outbound rules indicate the destination country that the domain resolves to.
+
+| **Example**             | **Rationale**                                                                        |
+|-------------------------|--------------------------------------------------------------------------------------|
+|       `@CN`             | This will match if a queried domain **resolves** to a Chinese IP address.            |
+|       `!@CN`            | This will match if the DNS query **does not resolve** to a Chinese IP address.       |
+
+#### Example
+
+:bulb: `@` indicates checking the destination country that the domain resolves to.
+
+Let's say I don't want to accidentally go to a Russian or Chinese site. I want to block DNS queries to domains that resolve to servers in countries with known cybersecurity threats like Russia or China. I would create the following two rules: `@RU` and `@CN` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule.
+
+### Inbound Requests
+Inbound rules focuses on the source country that a domain originates from. 
+
+| **Example**            | **Rationale**                                                                        |
+|------------------------|--------------------------------------------------------------------------------------|
+|       `#US`            | This will match if a queried domain **originates** from an American IP address.      |
+|       `!#US`           | This will match if the DNS query **does not originate** from an American IP address. |
+
+#### Example
+
+:bulb: `#` indicates checking the source country that the DNS query originates from.
+
+Using the same example, I want to allow DNS queries from domains that originate from the United States and Canada. I would create the following rules: `#US` and `#CA` both with a [bypass](https://docs.controld.com/docs/geo-custom-rules#bypass) rule, to allow the resolutions to process normally.
 
 :world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
