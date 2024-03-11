@@ -18,7 +18,7 @@
 5) Advanced Users
     * Multiple Devices and Profiles
     * Import & Export Folders
-    * Wild cards
+    * Wildcard rules
     * Spoofing location
     * Geo custom rules
 
@@ -320,7 +320,15 @@ To import a list above:
 ### Export
 You can export your folder by clicking the `...` button in a folder and selecting **Download Rules**.
 
-## Wild cards
+## Wildcard rules
+[Wildcard rules](https://docs.controld.com/docs/custom-rules#rule-format) allow you to block a wide spectrum of domains without listing them separately. This format is what Control D uses in their blocklists.
+
+Control D can block subdomains by adding wildcards like `*.example.com` to your Denylist. This will be converted to a regex expression automatically (e.g. `(^|.)example.com$`) to match subdomains.
+
+This blocks all subdomains of `domain.com`, but NOT `domain.com`. For example, you can block `*.analytics.com` to block all subdomains of `analytics.com`. 
+
+Utilize the [block](https://docs.controld.com/docs/custom-rules#block) rule when creating wildcards.
+
 To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
 ## Spoofing location
@@ -330,8 +338,6 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
 Location spoofing may provide you with privacy benefits by hiding your real location. Control D goes a step further by incorporating proxy functionality.
 
 You can unlock geo-restricted services by leveraging DNS-based traffic redirection. This allows users to route their internet traffic through servers in different locations, enabling them to bypass geo-restrictions and access content that may be blocked in their region. You can then view a broader range of content, such as different Netflix libraries, that would otherwise be unavailable due to licensing restrictions.
-
-Control D provides a simple and effective way to unlock geo-restricted services and enhance online privacy by leveraging DNS-based traffic redirection.
 
 <details> <summary>:warning: Technical Limitations :warning: </summary>
    
@@ -350,6 +356,8 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 | Video        | BBC iPlayer        | London, GB      |
 
 ### Instructions
+Control D provides a simple and effective way to unlock geo-restricted services and enhance online privacy by leveraging DNS-based traffic redirection.
+
 1) To access Services, go to https://controld.com/dashboard/profiles > Edit > Services.
 2) Choose a category.
 3) Select the third icon (globe).
