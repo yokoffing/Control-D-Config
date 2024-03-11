@@ -363,8 +363,37 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 3) Select the third icon (globe).
 4) Choose a proxy location.
 
-## Geo Custom Rules
+## Geo Custom Rules (beta)
 
-To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCR) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries. GCRs work similarly to standard custom rules but leverage location data associated with source and destination IPs.
 
-[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCR)
+GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2).
+
+`@` - destination country
+`#` - source country
+`!@` - NOT destination country
+`!#` - NOT source country
+
+@CN - This will match if a queried domain resolves to a Chinese IP address.
+#CA - This will match if the DNS query originates from a Canadian IP address.
+!@US - This will match if the queried domain does **not** resolve to a US IP address.
+!#DE - This will match if the DNS query does **not** originate from a German IP address.
+
+:world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+
+### Instructions
+
+#### Create a folder (optional)
+1. Under the desired profile, add the folder by clicking the big green `+` button.
+2. Select **Folder**.
+3. Under **Folder Name**, type `Geo Custom Rules`.
+
+#### Create a rule
+For this example, let's say that I don't want to connect to any Chinese IP addresses. I will need the `@` symbol (we're specifying the destination country), the two-letter ISO country code (CN), and the [block](https://docs.controld.com/docs/geo-custom-rules#block) rule.
+1. Select a folder.
+2. Add a rule by clicking the big green `+` button.
+3. Under **Domain**, type `@CN`.
+4. Select the first icon, **Block**, to prevent a domain resolving to a Chinese IP address.
+5. Click **Add Rule**.
+
+If I didn't want to receive any requests from a a Chinese IP address, I'd do the same steps but use the `#` symbol.
