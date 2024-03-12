@@ -433,6 +433,6 @@ This setup is useful if you have the [Default Rule](https://docs.controld.com/do
 
 Result: All requests are redirected through a proxy via the Default Rule except domains with a United States IP address.
 
-The opposite of this is similar to the chart in Example 4.
+The inverse of this is similar to the chart in Example 4.
 
 :memo: You can also make rules for source IPs, not just destination. Read the [docs]((https://docs.controld.com/docs/geo-custom-rules)) if you're curious. 
