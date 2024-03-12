@@ -350,7 +350,7 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
 </details>
 
 ### Instructions
-Control D provides a simple and effective way to unlock geo-restricted services and enhance online privacy by leveraging DNS-based traffic redirection.
+Control D provides a simple and effective way to use DNS-based traffic redirection for popular services
 
 1) To access Services, go to https://controld.com/dashboard/profiles > Edit > Services.
 2) Choose a category.
