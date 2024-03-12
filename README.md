@@ -339,7 +339,8 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
    
 * Websites or apps employing legacy security protocols might not be accessible when attempting to bypass geo-restrictions. The [redirect](https://docs.controld.com/docs/services#redirect) rule requires Server Name Indication (SNI), which is not supported in these older standards. This prevents the bypassing method from functioning as intended.
 * Currently, the unencrypted SNI allows ISPs and network admins to see your visited sites when analyzing traffic with Deep Packet Inspection (DPI). [Encrypted Client Hello](https://github.com/yokoffing/Betterfox/blob/14de7b101d48f15f50df7dd5dbfffefca5b4a855/Securefox.js#L725-L729) (ECH) is coming but it's not widely used yet.
-   
+* Control D is not a VPN; it will not bypass government restrictions.
+
 </details>
 
 ### Examples
@@ -363,7 +364,7 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 
 [Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries.
 
-These rules allow you to spoof (redirect), block, or bypass domains that resolve to IPs in the chosen country.
+These rules allow you to redirect, block, or bypass domains that resolve to IPs in the chosen country.
 
 ### Create a folder (optional)
 I recommend you put all these rules in their own folder:
