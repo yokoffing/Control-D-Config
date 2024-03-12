@@ -429,7 +429,7 @@ This setup is useful if you have the [Default Rule](https://docs.controld.com/do
 
 | **Rule** | **Symbol** | **Country** | **Description**                                                        |
 |----------|------------|-------------|------------------------------------------------------------------------|
-| Bypass   | `@`        | `US`        | Resolve domains with a United States IP address normally.              |
+| Bypass   | `@`        | `US`        | Domains with a United States IP address are resolved normally.         |
 
 Result: All requests are redirected through a proxy via the Default Rule except domains with a United States IP address.
 
