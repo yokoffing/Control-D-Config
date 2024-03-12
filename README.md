@@ -372,7 +372,7 @@ I recommend you put all these rules in their own folder:
 4. Under **Folder Name**, type `Geo Custom Rules`.
 5. Click **Add Folder**.
 
-GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
+GCRs start with the formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
 | **Symbol**   | **Definition**                                                        |
 |--------------|-----------------------------------------------------------------------|
