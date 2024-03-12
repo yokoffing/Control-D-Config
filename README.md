@@ -337,9 +337,9 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
 
 | **Category** |     **Service**    | **Destination** |
 |:------------:|:------------------:|:---------------:|
-| Audio        | Apple Music        | Dallas, US      |
+| Finance      | Citi               | Dallas, US      |
 | News         | The New York Times | New York, US    |
-| Video        | BBC iPlayer        | London, GB      |
+| Tools        | Bing               | Charlotte, US   |
 
 <details> <summary>:warning: Technical Limitations </summary>
    
