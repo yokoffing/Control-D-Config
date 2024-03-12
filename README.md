@@ -363,6 +363,8 @@ Control D provides a simple and effective way to unlock geo-restricted services 
 
 [Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries.
 
+These rules allow you to spoof (redirect), block, or bypass domains that resolve to IPs in the chosen country.
+
 ### Create a folder (optional)
 I recommend you put all these rules in their own folder:
 1. To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
@@ -371,64 +373,67 @@ I recommend you put all these rules in their own folder:
 4. Under **Folder Name**, type `Geo Custom Rules`.
 5. Click **Add Folder**.
 
-GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements). For better understanding, I've divided these rules into outbound and inbound requests.
+GCRs start with any of the four formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
 
-### Outbound Requests
-Outbound rules indicate the destination country that the domain resolves to.
+| **Symbol**   | **Definition**                                                        |
+|--------------|-----------------------------------------------------------------------|
+| `@`          | Domains **resolve** to an IP address in a destination country.        |
+| `!@`         | Domains **do not resolve** to an IP address in a destination country. |
 
-| **Symbol**   | **Definition**                                               |
-|--------------|--------------------------------------------------------------|
-| `@`          | A queried domain **resolves** to a destination country.      |
-| `!@`         | The DNS query **does not resolve** to a destination country. |
-
-### Inbound Requests
-Inbound rules focus on the source country that a domain originates from. 
-
-| **Symbol**   | **Definition**                                                             |
-|--------------|----------------------------------------------------------------------------|
-| `#`          | A queried domain **originates** from a source country IP address.          |
-| `!#`         | The DNS query **does not originate** from a source country IP address.     |
-
-### Examples
-#### 1) Lockdown network
-So let's say you're a real glutton for punishment and want to limit your network connections to **only** the United States and Canada. Control D can understand multiple `!#` block rules, if you want to limit your DNS resolutions to a handful of countries.
-
-You would use `!#US` and `!#CA` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions to domains outside of these countries.
-
-| **Rule** | **Symbol** | **Country** | **Description**                                                        |
-|----------|------------|-------------|------------------------------------------------------------------------|
-| Block    | `!#`       | `US`        | Domains from the United States resolve normally, but other countries' domains are blocked. |
-| Block    | `!#`       | `CA`        | Domains from Canada resolve normally, but other countries' domains are blocked. |
-
-In other words, all DNS resolutions are blocked unless the domains originate from America or Canada.
-
-:warning: You should not [mix-and-match](https://docs.controld.com/docs/geo-custom-rules#this-is-not-ok) block and bypass rules with `!@` and `!#` formats.
-
-#### 2) Allow specific countries
-Now you want to make exceptions. You are going to **allow** DNS queries from domains that originate from the United Kingdom and Poland, maybe because you're traveling there soon.
-
-You would use `#GB` and `#PL` both with a [bypass](https://docs.controld.com/docs/geo-custom-rules#bypass) rule, to allow the resolutions to process normally.
-
-| **Rule** | **Symbol** | **Country** | **Description**                                                        |
-|----------|------------|-------------|------------------------------------------------------------------------|
-| Bypass   | `#`        | `GB`        | Allow DNS queries from the United Kingdom to process normally.         |
-| Bypass   | `#`        | `PL`        | Allow DNS queries from Poland to process normally.                     |
-
-#### 3) Block specific countries
+### Block Examples
+#### 1) Block specific countries
 Let's assume you only want to **block** DNS queries to domains that resolve to servers in countries with known cybersecurity threats like Russia or China.
 
-You would create the following two rules `@RU` and `@CN` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions from the those domains.
+You would create the following two rules `@RU` and `@CN` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to stop anything that resolves to a Russian or Chinese IP.
 
 | **Rule** | **Symbol** | **Country** | **Description**                                             |
 |----------|------------|-------------|-------------------------------------------------------------|
-| Block    | `@`        | `RU`        | Block DNS queries that resolve to domains in Russia.        |
-| Block    | `@`        | `CN`        | Block DNS queries that resolve to domains in China.         |
+| Block    | `@`        | `RU`        | Block domains that resolve to a Russian IP address.        |
+| Block    | `@`        | `CN`        | Block domains that resolve to a Chinese IP address.         |
 
-#### 4) Spoof country location
-Similar to spoofing locations for Services, you can use a [redirect](https://docs.controld.com/docs/geo-custom-rules#redirect) rule spoof any country's domain via a proxy location.
+Result: Web requests that would resolve in those countries are blocked.
 
-Maybe you access a lot domains in Mexico. Tell Control D to use this setting for domains resolving to domains from Mexico.
+#### 2) Lockdown network
+So let's say you're a real glutton for punishment and want to limit your network connections to **only** the United States and Canada. Control D can understand multiple `!@` block rules, if you want to limit your DNS resolutions to a handful of countries.
+
+You would use `!@US` and `!@CA` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions to domains outside of these countries.
+
+| **Rule** | **Symbol** | **Country** | **Description**                                                        |
+|----------|------------|-------------|------------------------------------------------------------------------|
+| Block    | `!@`       | `US`        | Block domains that **don't** resolve to a United States IP address. |
+| Block    | `!@`       | `CA`        | Block domains that **don't** resolve to a Canadian IP address. |
+
+Result: DNS resolutions are blocked unless the domains resolve to servers located in the United States or Canada.
+
+### Redirect Examples
+#### 3) Resolve IP address in a chosen country
+You can use a [redirect](https://docs.controld.com/docs/geo-custom-rules#redirect) rule to resolve to IPs in the chosen country.
 
 | **Rule** | **Location Override** | **Symbol** | **Country** | **Description**                                                |
 |----------|-----------------------|------------|-------------|----------------------------------------------------------------|
-| Redirect | Mexico City, MX       | `@`        | `MX`        | Use the proxy location for any domains that resolve to Mexico. |
+| Redirect | Mexico City, MX       | `@`        | `MX`        | Redirect domains that resolve to an IP address in Mexico through a Mexican proxy server. |
+
+Result: You're essentially browsing the internet as if you were physically located in Mexico.
+
+#### 4) Resolve foreign domains via a proxy
+In this example, let's assume you live in the United States. You can automatically [redirect](https://docs.controld.com/docs/geo-custom-rules#redirect) non-US IP addresses through a proxy.
+
+| **Rule** | **Location Override** | **Symbol** | **Country** | **Description**                                                |
+|----------|-----------------------|------------|-------------|----------------------------------------------------------------|
+| Redirect | New York, US          | `!@`       | `US`        | Redirect domains that **don't** resolve to a United States IP address through a New York proxy server. |
+
+Result: You route any requests originating outside the United States through a proxy server located in New York.
+
+### Bypass Example
+#### 5) Create exceptions for the proxy
+This setup is useful if you have the [Default Rule](https://docs.controld.com/docs/default-rule) set to redirect ([read more](https://docs.controld.com/docs/default-rule#redirect)) and want to make exceptions, to resolve certain requests without a proxy.
+
+| **Rule** | **Symbol** | **Country** | **Description**                                                        |
+|----------|------------|-------------|------------------------------------------------------------------------|
+| Bypass   | `@`        | `US`        | Resolve domains with a United States IP address normally.              |
+
+Result: All requests are redirected through a proxy via the Default Rule except domains with a United States IP address.
+
+The opposite of this is similar to the chart in Example 4.
+
+:memo: You can also make rules for source IPs, not just destination. Read the [docs]((https://docs.controld.com/docs/geo-custom-rules)) if you're curious. 
