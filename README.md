@@ -333,7 +333,13 @@ For instance, adding `*.analytics.com` to the Denylist stops requests to subdoma
 
 A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all domains associated with a [service](https://docs.controld.com/docs/services) to a location or IP address you specify.
 
+### Examples
 
+| **Category** |     **Service**    | **Destination** |
+|:------------:|:------------------:|:---------------:|
+| Audio        | Apple Music        | Dallas, US      |
+| News         | The New York Times | New York, US    |
+| Video        | BBC iPlayer        | London, GB      |
 
 <details> <summary>:warning: Technical Limitations </summary>
    
@@ -342,14 +348,6 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
 * Control D is not a VPN; it will not bypass government restrictions.
 
 </details>
-
-### Examples
-
-| **Category** |     **Service**    | **Destination** |
-|:------------:|:------------------:|:---------------:|
-| Audio        | Apple Music        | Dallas, US      |
-| News         | The New York Times | New York, US    |
-| Video        | BBC iPlayer        | London, GB      |
 
 ### Instructions
 Control D provides a simple and effective way to unlock geo-restricted services and enhance online privacy by leveraging DNS-based traffic redirection.
