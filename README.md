@@ -19,7 +19,7 @@
     * Multiple Devices and Profiles
     * Import & Export Folders
     * Wildcard rules
-    * Spoofing location
+    * Spoofing/Redirecting Domains
     * Geo custom rules
 
 ***
@@ -329,15 +329,11 @@ For instance, adding `*.analytics.com` to the Denylist stops requests to subdoma
 
 :world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
-## Spoofing location
+## Spoofing/Redirecting Domains
 
 A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all domains associated with a [service](https://docs.controld.com/docs/services) to a location or IP address you specify.
 
-Location spoofing may provide you with privacy benefits by hiding your real location. Control D goes a step further by incorporating proxy functionality.
 
-Control D allows you to unlock geo-restricted services by leveraging DNS-based traffic redirection. This allows users to route their internet traffic through servers in different locations, enabling them to bypass geo-restrictions and access content that may be blocked in their region.
-
-You can then view a broader range of content, such as different Netflix libraries, that would otherwise be unavailable due to licensing restrictions.
 
 <details> <summary>:warning: Technical Limitations </summary>
    
