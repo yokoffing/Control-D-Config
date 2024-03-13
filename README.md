@@ -6,21 +6,21 @@
 
 # Contents
 
-1) Sign up
-2) Profiles
-3) Devices
-4) Customizations
-    * Filters
-        * Recommendations 
-    * Services
-    * Custom Rules
-    * Profiles Options
-5) Advanced Users
-    * Multiple Devices and Profiles
-    * Import & Export Folders
-    * Wildcard rules
-    * Spoofing/Redirecting Domains
-    * Geo custom rules
+1) [Sign up](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#sign-up)
+2) [Profiles](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#profiles)
+3) [Devices](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#devices)
+4) [Customizations](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#customizations)
+    * [Filters](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#filters)
+        * [Recommendations](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#recommendations)
+    * [Services](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#services)
+    * [Custom Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#custom-rules)
+    * [Profile Options](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#profile-options)
+5) [Advanced Users](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#advanced-users)
+    * [Multiple Devices and Profiles](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#multiple-devices-and-profiles)
+    * [Import & Export Folders](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#import-&-export-folders)
+    * [Wildcard rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#wildcard-rules)
+    * [Spoofing Domains](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#spoofing-domains)
+    * [Geo custom rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#geo-custom-rules)
 
 ***
 
@@ -329,9 +329,9 @@ For instance, adding `*.analytics.com` to the Denylist stops requests to subdoma
 
 :world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
 
-## Spoofing/Redirecting Domains
+## Spoofing Domains
 
-A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all domains associated with a [service](https://docs.controld.com/docs/services) to a location or IP address you specify.
+A [redirect](https://docs.controld.com/docs/services#redirect) rule proxies all domains associated with a [Service](https://docs.controld.com/docs/services) to a location or IP address you specify.
 
 ### Examples
 
@@ -352,7 +352,7 @@ A [Redirect](https://docs.controld.com/docs/services#redirect) rule proxies all 
 ### Instructions
 Control D provides a simple and effective way to use DNS-based traffic redirection for popular services
 
-1) To access Services, go to https://controld.com/dashboard/profiles > Edit > Services.
+1) To access services, go to https://controld.com/dashboard/profiles > Edit > Services.
 2) Choose a category.
 3) Select the third icon (globe).
 4) Choose a proxy location.
@@ -393,6 +393,8 @@ You would create the following two rules `@RU` and `@CN` both with a [block](htt
 Result: Web requests that would resolve in those countries are blocked.
 
 #### 2) Lockdown network
+:warning: 
+
 So let's say you're a real glutton for punishment and want to limit your network connections to **only** the United States and Canada. Control D can understand multiple `!@` block rules, if you want to limit your DNS resolutions to a handful of countries.
 
 You would use `!@US` and `!@CA` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions to domains outside of these countries.
