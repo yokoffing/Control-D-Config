@@ -15,6 +15,7 @@
     * [Services](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#services)
     * [Custom Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#custom-rules)
     * [Profile Options](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#profile-options)
+        * [TTL Overrides](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#ttl-overrides)
 5) [Advanced Users](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#advanced-users)
     * [Multiple Devices and Profiles](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#multiple-devices-and-profiles)
     * [Wildcard Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#wildcard-rules)
