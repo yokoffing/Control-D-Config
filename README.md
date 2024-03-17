@@ -307,9 +307,9 @@ You can import folders by clicking the `...` icon and selecting **Upload Folder*
 
 [Hagezi](https://github.com/hagezi/dns-blocklists) has [compiled folders](https://github.com/hagezi/dns-blocklists/tree/main/controld) that can be imported, such as:
 
-* [Spam TLDs folder](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
-* [Spam TLDs Allow folder](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
-* [Spam IDNS](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
+* [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
+* [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
+* [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json) <sup>*^[What are IDNs?](https://alldomains.hosting/en/what-are-idn-domains.html#what-is-an-idn-domain)*</sup>
 
 To import a list above:
 1) Click the link.
