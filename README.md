@@ -362,9 +362,14 @@ Control D provides a simple and effective way to use DNS-based traffic redirecti
 ## Geo Custom Rules
 :warning: This feature is still in beta.
 
-[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries.
+[Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries. These rules allow you to redirect, block, or bypass domains that resolve to IPs in the chosen country.
 
-These rules allow you to redirect, block, or bypass domains that resolve to IPs in the chosen country.
+GCRs start with the formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
+
+| **Symbol**   | **Definition**                                                        |
+|--------------|-----------------------------------------------------------------------|
+| `@`          | Domains **resolve** to an IP address in a destination country.        |
+| `!@`         | Domains **do not resolve** to an IP address in a destination country. |
 
 ### Create a folder (optional)
 I recommend you put all these rules in their own folder:
@@ -373,13 +378,6 @@ I recommend you put all these rules in their own folder:
 3. Select **Folder**.
 4. Under **Folder Name**, type `Geo Custom Rules`.
 5. Click **Add Folder**.
-
-GCRs start with the formats below, followed by a two-letter [ISO country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements).
-
-| **Symbol**   | **Definition**                                                        |
-|--------------|-----------------------------------------------------------------------|
-| `@`          | Domains **resolve** to an IP address in a destination country.        |
-| `!@`         | Domains **do not resolve** to an IP address in a destination country. |
 
 ### Block Examples
 #### 1) Block specific countries
