@@ -92,7 +92,7 @@ You can choose other 3rd party lists, but they aren't needed.
 I have three builds below, using a combination of both native and 3rd party filters:
 * The first build, **Relaxed**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
 * The second build, **Hardened**, increases defenses against trackers and malicious sites.
-* A third build, **Aggressive**, with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+* A third build, **Aggressive**, goes further but with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
 | Build               | Native                                                                  | 3rd Party                                       |
 |---------------------|-------------------------------------------------------------------------|-------------------------------------------------|
@@ -103,8 +103,6 @@ I have three builds below, using a combination of both native and 3rd party filt
 <sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 <br>
 <sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
-
-:star: Congrats! By using these filters, you are significantly better off than most internet users.
 
 ***
 
