@@ -88,31 +88,20 @@ I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS li
 You can choose other 3rd party lists, but they aren't needed.
 
 ### Recommendations
-The first build, **Relaxed**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
+I have three builds below, using a combination of both native and 3rd party filters:
+* The first build, **Relaxed**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
+* The second build, **Hardened**, increases defenses against trackers and malicious sites.
+* A third build, **Aggressive**, with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
-The second build, **Hardened**, increases defenses against trackers and malicious sites, but with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+| Build               | Native                                                                  | 3rd Party                                       |
+|---------------------|-------------------------------------------------------------------------|-------------------------------------------------|
+| **Relaxed**  | Malware (Relaxed) <br> Phishing                                                | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
+| **Hardened** | Dynamic DNS <br> Malware (Balanced) <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
+| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware (Strict)<sup>2</sup> <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
 
-| Build               | Native                                                             | 3rd Party                                       |
-|---------------------|--------------------------------------------------------------------|-------------------------------------------------|
-| **Relaxed**  | Malware (Balanced)<sup>1</sup> <br> Phishing                                    | Hagezi's DNS - Normal <br> Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware (Strict)<sup>1</sup> <br> New Domains<sup>2</sup> <br> Phishing | Hagezi's DNS - Pro Plus <br> Hagezi's DNS - TIF |
-
-<sup> **1** [Balanced](https://docs.controld.com/docs/malware#relaxed) and [Strict](https://docs.controld.com/docs/malware#strict) mode blocks malicious domains [effectively](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/), but they may cause false positives. Switch to [Relaxed](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
-
-<sup> **2** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
-
-<p> </p>
-
-<details><summary>Toggle me if you prefer to only use Native filters:</summary>
-
-| Build                             | Native                                                                                                                                                | 3rd Party |
-|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| **Relaxed (native only)**  | Ads & Trackers (Relaxed) <br> Malware (Balanced)<sup>1</sup> <br> Phishing                                                                                         |           |
-| **Hardened (native only)** | Ads & Trackers (Balanced) <br> Dynamic DNS <br> IoT Telemetry (for non-desktops) <br> Malware (Strict)<sup>1</sup> <br> New Domains <br> Phishing |           |
-
-<sup> **1** [Balanced](https://docs.controld.com/docs/malware#relaxed) and [Strict](https://docs.controld.com/docs/malware#strict) mode blocks malicious domains [effectively](https://techblog.nexxwave.eu/public-dns-malware-filters-tested-in-2024/), but they may cause false positives. Switch to [Relaxed](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
-
-</details>
+<sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
+<br>
+<sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
 :star: Congrats! By using these filters, you are significantly better off than most internet users.
 
