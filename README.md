@@ -309,6 +309,7 @@ You can import folders by clicking the `...` icon and selecting **Upload Folder*
 
 * [Spam TLDs folder](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
 * [Spam TLDs Allow folder](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
+* [Spam IDNS](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
 
 To import a list above:
 1) Click the link.
