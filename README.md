@@ -17,10 +17,10 @@
     * [Profile Options](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#profile-options)
 5) [Advanced Users](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#advanced-users)
     * [Multiple Devices and Profiles](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#multiple-devices-and-profiles)
+    * [Wildcard Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#wildcard-rules)
     * [Import & Export Folders](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#import-&-export-folders)
-    * [Wildcard rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#wildcard-rules)
     * [Spoofing Domains](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#spoofing-domains)
-    * [Geo custom rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#geo-custom-rules)
+    * [Geo Custom Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#geo-custom-rules)
 
 ***
 
@@ -296,31 +296,6 @@ If desired, Control D allows enforcing two profiles on a single device. [Multipl
 
 :bulb: You can read more on advance rule logic in the [docs](https://docs.controld.com/docs/advanced-rules-creation-guide).
 
-## Import & Export Folders
-### Import
-Control D allows you to import and export folders from other users under Custom Rules.
-
-#### TLDs
-You may want to add a folder for [TLDs](https://webtribunal.net/blog/tld-statistics).
-
-You can import folders by clicking the `...` icon and selecting **Upload Folder**.
-
-[Hagezi](https://github.com/hagezi/dns-blocklists) has [compiled folders](https://github.com/hagezi/dns-blocklists/tree/main/controld) that can be imported, such as:
-
-* [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
-* [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
-* [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json) <sup>*^[What are IDNs?](https://alldomains.hosting/en/what-are-idn-domains.html#what-is-an-idn-domain)*</sup>
-
-To import a list above:
-1) Click the link.
-2) On Github, select the `...` button in the top-right corner.
-3) Click **Download**.
-4) On Control D - Custom Rules, select the `...` icon.
-5) Click **Upload Folder**.
-
-### Export
-You can export your folder by clicking the `...` button in a folder and selecting **Download Rules**.
-
 ## Wildcard rules
 [Wildcard rules](https://docs.controld.com/docs/custom-rules#rule-format) allow you to [block](https://docs.controld.com/docs/custom-rules#block) a wide spectrum of domains without listing them separately. This format is what Control D uses in their blocklists.
 
@@ -329,6 +304,32 @@ Control D can block subdomains by adding wildcards like `*.domain.com` to your D
 For instance, adding `*.analytics.com` to the Denylist stops requests to subdomains like `tracking.analytics.com` or `metrics.analytics.com` while still allowing access to the main `analytics.com` site.
 
 :world_map: To access Custom Rules, go to https://controld.com/dashboard/profiles > Edit > Custom Rules.
+
+## Import & Export Folders
+### Import
+Control D allows you to import and export folders from other users under Custom Rules.
+
+To download a folder:
+1) Click the link.
+2) On Github, select the `...` button in the top-right corner.
+3) Click **Download**.
+4) On Control D - Custom Rules, select the `...` icon.
+5) Click **Upload Folder**.
+
+#### TLDs
+You may want to add a folder to block certain [TLDs](https://webtribunal.net/blog/tld-statistics) and [IDNs](https://alldomains.hosting/en/what-are-idn-domains.html#what-is-an-idn-domain). [Hagezi](https://github.com/hagezi/dns-blocklists) has compiled folders for you to easily import into Control D:
+
+* [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
+* [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
+* [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
+
+#### International IPs
+I created a folder to block IP addresses from certain countries (see Geo Custom Rules). These countries have high rates of cybercrime or state-sponsored spyware activity. After importing the folder, review the list and disable certain rules if your region or travel destinations are affected.
+
+* [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json)
+
+### Export
+Want to share your folder? You can export it by clicking the `...` button in a folder and selecting **Download Rules**.
 
 ## Spoofing Domains
 
@@ -393,8 +394,10 @@ You would create the following two rules `@RU` and `@CN` both with a [block](htt
 
 Result: Web requests that would resolve in those countries are blocked.
 
+I created a folder called [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json) to block countries with high suspected state-sponsored spyware activity and cybercrime rates. If you live outside the U.S. or travel internationally, you should review the list after importing.
+
 #### 2) Lockdown network
-:warning: 
+:warning: This route did not work properly for me recently. You may want to stick with the previous example for now.
 
 So let's say you're a real glutton for punishment and want to limit your network connections to **only** the United States and Canada. Control D can understand multiple `!@` block rules, if you want to limit your DNS resolutions to a handful of countries.
 
