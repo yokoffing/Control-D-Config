@@ -182,7 +182,7 @@ To create an denylist:
 4. Toggle **Folder Rule**.
 5. Under **Select Rule**, make sure **[Block](https://docs.controld.com/docs/custom-rules#block)** is selected.
 
-:memo: Note that Control D disables iCloud Private Relay by default [read more](https://docs.controld.com/docs/icloud-private-relay).
+:memo: Note that Control D disables iCloud Private Relay by default ([read more](https://docs.controld.com/docs/icloud-private-relay)).
 
 ***
 
