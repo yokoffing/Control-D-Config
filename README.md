@@ -206,9 +206,9 @@ To create an denylist:
 
 :warning: DNSSEC can make things slower and break some sites.
 
-[DNSSEC](https://www.upguard.com/blog/dnssec#toc-1) is a security protocol that enhances DNS by using digital signatures to verify the authenticity and integrity of DNS data. The protocol cryptographically signs DNS records using public key [cryptography](https://www.cloudflare.com/dns/dnssec/how-dnssec-works/), allowing DNS resolvers to confirm the validity of DNS responses and detect forged or manipulated data. This allows the DNS resolvers to verify that the DNS responses they receive are valid and from the authoritative source, rather than being forged or manipulated by attackers. DNSSEC protects against DNS [cache poisoning](https://www.cloudflare.com/learning/dns/dns-security/) attacks, ensuring users are not redirected by attackers.
+[DNSSEC](https://www.upguard.com/blog/dnssec#toc-1) is a security protocol that enhances DNS by using digital signatures to verify the authenticity and integrity of DNS data. The protocol cryptographically signs DNS records using [public key cryptography](https://www.cloudflare.com/dns/dnssec/how-dnssec-works/), allowing the DNS resolver to verify that the DNS responses they receive are valid and from the authoritative source, rather than being forged or manipulated by attackers. DNSSEC protects against DNS [cache poisoning](https://www.cloudflare.com/learning/dns/dns-security/) attacks, ensuring users are not redirected by attackers.
 
-DNS over HTTPS (DoH) and similar protocols do not eliminate the need for DNSSEC to validate the integrity of DNS data. However, when using a service like Control D that can modify DNS records based on user-defined rules, there is little added benefit to enabling DNSSEC validation.
+DNS over HTTPS (DoH) and similar protocols do **not** eliminate the need for DNSSEC to validate the integrity of DNS data. However, when using a service like Control D that can modify DNS records based on user-defined rules, there is little added benefit to enabling DNSSEC validation.
 
 Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC<sup>1</sup> requires a separate DNS resolver and cache, which impacts performance.
 
