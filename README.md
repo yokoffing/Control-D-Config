@@ -221,7 +221,7 @@ Control D also [states](https://discord.com/channels/1035992466203099147/1037876
 
 Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
 
-Below are common values to use for DNS caching, measured in seconds.
+Below are possible values to use for DNS caching, measured in seconds.
 
 | Value   | Duration  |
 |---------|-----------|
@@ -229,6 +229,7 @@ Below are common values to use for DNS caching, measured in seconds.
 | `300`   | 5 minutes |
 | `3600`  | 1 hour    |
 | `28800` | 8 hours   |
+| `43200` | 12 hours  |
 | `86400` | 24 hours  |
 
 #### Block TTL
