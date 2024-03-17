@@ -1,0 +1,202 @@
+{
+  "group": {
+    "group": "Spyware IPs",
+    "action": {
+      "status": 1
+    }
+  },
+  "rules": [
+    {
+      "PK": "@RU",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Russian IP address."
+    },
+    {
+      "PK": "@CN",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Chinese IP address."
+    },
+    {
+      "PK": "@IN",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to an Indian IP address."
+    },
+    {
+      "PK": "@NG",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Nigerian IP address."
+    },
+    {
+      "PK": "@VN",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Vietnamize IP address."
+    },
+    {
+      "PK": "@IR",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Iranian IP address."
+    },
+    {
+      "PK": "@BR",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Brazilian IP address."
+    },
+    {
+      "PK": "@AE",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a United Arab Emirates IP address."
+    },
+    {
+      "PK": "@AF",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Afghani IP address."
+    },
+    {
+      "PK": "@MX",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Mexican IP address."
+    },
+    {
+      "PK": "@MA",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Moroccan IP address."
+    },
+    {
+      "PK": "@ID",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Indonesian IP address."
+    },
+    {
+      "PK": "@SA",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Saudi IP address."
+    },
+    {
+      "PK": "@CO",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Colombian IP address."
+    },
+    {
+      "PK": "@ET",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Ethiopian IP address."
+    },
+    {
+      "PK": "@GT",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Guatemalan IP address."
+    },
+    {
+      "PK": "@HN",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Honduran IP address."
+    },
+    {
+      "PK": "@IL",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Israeli IP address."
+    },
+    {
+      "PK": "@PE",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Peruvian IP address."
+    },
+    {
+      "PK": "@GE",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a German IP address."
+    },
+    {
+      "PK": "@TH",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Thai IP address."
+    },
+    {
+      "PK": "@NL",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Netherlands IP address."
+    },
+    {
+      "PK": "@PL",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a Polish IP address."
+    },
+    {
+      "PK": "@KP",
+      "action": {
+        "do": 0,
+        "status": 1
+      },
+      "comment": "Block domains that resolve to a North Korean IP address."
+    }
+  ]
+}
