@@ -182,7 +182,7 @@ To create an denylist:
 ### AI Malware Filter
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
 
-*Enable in (Relaxed Mode) for Hardened profiles.*
+*Enable in (Relaxed Mode) for Aggressive profiles.*
 
 ### Safe Search
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
@@ -202,9 +202,9 @@ To create an denylist:
 ### Disable DNSSEC
 ![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
-:bulb: Control D sits between the user and the upstream DNS servers, giving it full control over the DNS records. This reduces the value of DNSSEC's authentication.
+:bulb: Control D sits between you and the upstream DNS servers, giving it full control over your DNS records. This reduces the value of DNSSEC's authentication.
 
-:warning: DNSSEC also makes things slower, and breaks some sites.
+:warning: DNSSEC can make things slower and break some sites.
 
 An argument can be made that using DoH alone does not eliminate the need for DNSSEC to validate DNS data integrity. However, when using DOH / DOT / DOQ protocols through a service like Control D, which can manipulate DNS records based on user-defined rules, there is little benefit to also enabling DNSSEC validation.
 
@@ -212,13 +212,12 @@ Control D also [states](https://discord.com/channels/1035992466203099147/1037876
 
 <sup>* At this time, [DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are grouped together in this settings.</sup>
 
-### TTL
+### TTL Overrides
+:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
 
-![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
+:warning: Do not set higher than 24 hours.
 
 Every DNS record has a time-to-live (TTL) value that determines how long devices cache the record before requesting an update from the DNS server. This caching reduces DNS queries and can improve performance.
-
-There are three TTLs that you can tweak in Profile Options. You can set values for [Block TTL](https://docs.controld.com/docs/ttl-overrides#block-ttl), [Redirect TTL](https://docs.controld.com/docs/ttl-overrides#redirect-ttl), or [Bypass TTL](https://docs.controld.com/docs/ttl-overrides#bypass-ttl).
 
 Below are common values to use for DNS caching, measured in seconds.
 
@@ -230,9 +229,35 @@ Below are common values to use for DNS caching, measured in seconds.
 | `28800` | 8 hours   |
 | `86400` | 24 hours  |
 
-:bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
+#### Block TTL
+![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
-:warning: Do not set higher than 24 hours.
+**Default value:** `10` (10 seconds)
+<br> **Recommended value:** `60` (1 minute)
+
+[Block TTL](https://docs.controld.com/docs/ttl-overrides#block-ttl) increases the time-to-live for DNS records blocked by Control D. A higher value means fewer DNS lookups for blocked requests, but also a longer delay between unblocking a domain and it becoming accessible.
+
+:bulb: The less aggressive your Profile is, the more comfortable you may be setting this to a higher value.
+
+#### Redirect TTL
+![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
+
+**Default value:** `20` (20 seconds)
+<br> **Recommended value:** `300` (5 minutes)
+
+A redirect rule spoofs the domain to a proxy location or alternate IP address. [Redirect TTL](https://docs.controld.com/docs/ttl-overrides#redirect-ttl) increases the time-to-live for DNS redirected by a Service, Custom Rule, or the Default Rule. A higher value means fewer DNS lookups, but also a longer delay between changing locations and the new location settings taking effect on a Device.
+
+:warning: If you adjust redirect rules often, you may want to leave this disabled.
+
+#### Bypass TTL
+![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
+
+**Default value:**  `60` (1 minute)
+<br> **Recommended value:** `3600` (1 hour) or `86400` (24 hours)
+
+[Bypass TTL](https://docs.controld.com/docs/ttl-overrides#bypass-ttl) increases the time-to-live for DNS records that were not blocked or redirected (i.e. 'normal' requests), and passed to the upstream resolver. A higher value means fewer DNS lookups, but can cause websites to break if set beyond 24 hours.
+
+:memo: I've used `86400` for months without any issues.
 
 ***
 # Advanced Users
