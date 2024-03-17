@@ -342,14 +342,18 @@ To download a folder:
 5) Click **Upload Folder**.
 
 #### TLDs
-You may want to add a folder to block certain [TLDs](https://webtribunal.net/blog/tld-statistics) and [IDNs](https://alldomains.hosting/en/what-are-idn-domains.html#what-is-an-idn-domain). [Hagezi](https://github.com/hagezi/dns-blocklists) has compiled folders for you to easily import into Control D:
+You may want to add a folder to block certain [TLDs](https://webtribunal.net/blog/tld-statistics) and [IDNs](https://alldomains.hosting/en/what-are-idn-domains.html#what-is-an-idn-domain).
+
+[Hagezi](https://github.com/hagezi/dns-blocklists) has compiled folders for you to easily import into Control D.
 
 * [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
 * [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
 * [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
 
 #### International IPs
-I created a folder to block IP addresses from certain countries (see Geo Custom Rules). These countries have high rates of cybercrime or state-sponsored spyware activity. After importing the folder, review the list and disable certain rules if your region or travel destinations are affected.
+I created a folder to block IP addresses from certain countries (see Geo Custom Rules). These countries have high rates of cybercrime or state-sponsored spyware activity.
+
+After importing the folder, review the list and disable certain rules if your region or travel destinations are affected.
 
 * [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json)
 
