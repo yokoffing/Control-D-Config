@@ -90,19 +90,28 @@ You can choose other 3rd party lists, but they aren't needed.
 
 ### Recommendations
 I have three builds below, using a combination of both native and 3rd party filters:
-* The first build, **Relaxed**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
+* The first build, **Basic**, allows for seamless browsing while still blocking ads, trackers, and malicious sites.
 * The second build, **Hardened**, increases defenses against trackers and malicious sites.
 * A third build, **Aggressive**, goes further but with a higher chance of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
 
+These are only suggestions. Feel free to mix and match.
+
 | Build               | Native                                                                  | 3rd Party                                       |
 |---------------------|-------------------------------------------------------------------------|-------------------------------------------------|
-| **Relaxed**  | Malware (Relaxed) <br> Phishing                                                | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware (Balanced) <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
-| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware (Strict)<sup>2</sup> <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
+| **Basic**  | Malware ([Relaxed](https://docs.controld.com/docs/malware#relaxed)) <br> Phishing                                                | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
+| **Hardened** | Dynamic DNS <br> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
+| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
 
 <sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 <br>
 <sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
+
+[Not all ads](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) can be blocked at the DNS level. You will need an [ad blocker](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to block what's leftover.
+
+This is because not all ads come from third-party domains. Some ads come directly from the site you're visiting, like [YouTube](https://discourse.pi-hole.net/t/how-do-i-block-ads-on-youtube/253/2). DNS blockers stop the resolution of a domain, and content blockers filter page content.
+
+* Click [here](https://github.com/yokoffing/NextDNS-Config/tree/main#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to easily install a lightweight ad blocker.
+* Want to block more with your ad blocker? Check out my [custom filter lists](https://github.com/yokoffing/filterlists).
 
 ***
 
