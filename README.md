@@ -110,7 +110,7 @@ These are only suggestions. Feel free to mix and match.
 
 This is because not all ads come from third-party domains. Some ads come directly from the site you're visiting, like [YouTube](https://discourse.pi-hole.net/t/how-do-i-block-ads-on-youtube/253/2). DNS blockers stop the resolution of a domain, and content blockers filter page content.
 
-* Click [here](https://github.com/yokoffing/NextDNS-Config/tree/main#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to easily install a lightweight ad blocker.
+* Find web browser and ad blocker [recommendations](https://github.com/yokoffing/NextDNS-Config/tree/main#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to easily install a lightweight ad blocker.
 * Want to block more with your ad blocker? Check out my [custom filter lists](https://github.com/yokoffing/filterlists).
 
 ***
