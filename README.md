@@ -102,7 +102,7 @@ These are only suggestions. Feel free to mix and match.
 | **Hardened** | Dynamic DNS <br> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
 | **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
 
-<sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
+<sup> **1** A domain is considered new if it has been registered for less than 30 days. Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 <br>
 <sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
@@ -351,7 +351,9 @@ You may want to add a folder to block certain [TLDs](https://webtribunal.net/blo
 #### International IPs
 I created a folder to block IP addresses from certain countries (see Geo Custom Rules). These countries have high rates of cybercrime or state-sponsored spyware activity.
 
-After importing the folder, review the list and disable certain rules if your region or travel destinations are affected.
+After importing the folder, review the list and disable certain rules if they affect your region or travel destinations. The list excludes or disables rules affecting countries with high server traffic from other countries, such as the Netherlands and Israel.
+
+The list excludes or disables rules affecting countries that have high server traffic from other nations, such as the Netherlands and Israel.
 
 * [Potentially Malicious IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/potentially-malicious-ips.json)
 
