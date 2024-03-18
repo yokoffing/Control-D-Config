@@ -268,8 +268,6 @@ A redirect rule spoofs the domain to a proxy location or alternate IP address. [
 
 [Bypass TTL](https://docs.controld.com/docs/ttl-overrides#bypass-ttl) increases the time-to-live for DNS records that were not blocked or redirected (i.e. 'normal' requests), and passed to the upstream resolver. A higher value means fewer DNS lookups, but can cause websites to break if set beyond 24 hours.
 
-:memo: I've used `86400` for months without any issues.
-
 ***
 # Advanced Users
 ## Multiple Devices and Profiles
@@ -355,7 +353,7 @@ I created a folder to block IP addresses from certain countries (see Geo Custom 
 
 After importing the folder, review the list and disable certain rules if your region or travel destinations are affected.
 
-* [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json)
+* [Potentially Malicious IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/potentially-malicious-ips.json)
 
 ### Export
 Want to share your folder? You can export it by clicking the `...` button in a folder and selecting **Download Rules**.
@@ -421,7 +419,7 @@ You would create the following two rules `@RU` and `@CN` both with a [block](htt
 
 Result: Web requests that would resolve in those countries are blocked.
 
-:bulb: I created a folder called [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json) to block countries with high suspected state-sponsored spyware activity and cybercrime rates. If you live outside the U.S. or travel internationally, you should review the list after importing.
+:bulb: I created a folder called [Potentially Malicious IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/potentially-malicious-ips.json) to block countries with high suspected state-sponsored spyware activity or cybercrime rates. If you live outside the U.S. or travel internationally, you should review the list after importing.
 
 #### 2) Lockdown network
 So let's say you're a real glutton for punishment and want to limit your network connections to **only** the United States and Canada. Control D can understand multiple `!@` block rules, if you want to limit your DNS resolutions to a handful of countries.
