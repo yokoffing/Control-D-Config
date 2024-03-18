@@ -389,7 +389,7 @@ Control D provides a simple and effective way to use DNS-based traffic redirecti
 4) Choose a proxy location.
 
 ## Geo Custom Rules
-:warning: This feature is still in beta.
+:hammer_and_wrench: This feature is still in beta.
 
 [Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries. These rules allow you to redirect, block, or bypass domains that resolve to IPs in the chosen country.
 
@@ -435,7 +435,7 @@ You would use `!@US` and `!@CA` both with a [block](https://docs.controld.com/do
 
 Result: DNS resolutions are blocked unless the domains resolve to servers located in the United States or Canada.
 
-:warning: The method described above imposes greater restrictions compared to Example 1. This will lead to unforeseen complications during everyday web browsing.
+:warning: The method described above imposes greater restrictions compared to Example 1. GCRs use country codes and geo-IP address information to identify countries. If the geo-IP databases can't identify the country (`null geo`), then your site navigation will break. In other words, when you say `!@US = block`, the `null geo` matches this rule since the IP addresses not explicitly labeled U.S. (i.e. the IP address has a missing country code in the database).
 
 ### Redirect Examples
 #### 3) Resolve IP address in a chosen country
@@ -455,6 +455,8 @@ In this example, let's assume you live in the United States. You can automatical
 | Redirect | New York, US          | `!@`       | `US`        | Redirect domains that **don't** resolve to a United States IP address through a New York proxy server. |
 
 Result: You route any requests originating outside the United States through a proxy server located in New York.
+
+:warning: The method described above imposes greater restrictions compared to Example 3. GCRs use country codes and geo-IP address information to identify countries. If the geo-IP databases can't identify the country (`null geo`), then Control D will redirect the request to the proxy. In other words, even if a request originates from the U.S., but it is not labeled as such in the dataset, the `null geo` matches this rule since the IP addresses not explicitly labeled as from the U.S. (i.e. the IP address has a missing country code in the database).
 
 ### Bypass Example
 #### 5) Create exceptions for the proxy
