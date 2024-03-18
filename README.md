@@ -421,11 +421,9 @@ You would create the following two rules `@RU` and `@CN` both with a [block](htt
 
 Result: Web requests that would resolve in those countries are blocked.
 
-I created a folder called [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json) to block countries with high suspected state-sponsored spyware activity and cybercrime rates. If you live outside the U.S. or travel internationally, you should review the list after importing.
+:bulb: I created a folder called [Spyware IPs](https://github.com/yokoffing/Control-D-Config/blob/main/folders/spyware-ips.json) to block countries with high suspected state-sponsored spyware activity and cybercrime rates. If you live outside the U.S. or travel internationally, you should review the list after importing.
 
 #### 2) Lockdown network
-:warning: This route did not work properly for me recently. You may want to stick with the previous example for now.
-
 So let's say you're a real glutton for punishment and want to limit your network connections to **only** the United States and Canada. Control D can understand multiple `!@` block rules, if you want to limit your DNS resolutions to a handful of countries.
 
 You would use `!@US` and `!@CA` both with a [block](https://docs.controld.com/docs/geo-custom-rules#block) rule, to prevent any DNS resolutions to domains outside of these countries.
@@ -436,6 +434,8 @@ You would use `!@US` and `!@CA` both with a [block](https://docs.controld.com/do
 | Block    | `!@`       | `CA`        | Block domains that **don't** resolve to a Canadian IP address. |
 
 Result: DNS resolutions are blocked unless the domains resolve to servers located in the United States or Canada.
+
+:warning: The method described above imposes greater restrictions compared to Example 1. This will lead to unforeseen complications during everyday web browsing.
 
 ### Redirect Examples
 #### 3) Resolve IP address in a chosen country
