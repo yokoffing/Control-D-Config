@@ -190,7 +190,7 @@ To create an denylist:
 
 ***
 
-## Profiles Options 
+## Profile Options 
 ### AI Malware Filter
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
 
