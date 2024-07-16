@@ -23,7 +23,7 @@
 5) [Advanced Users](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#advanced-users)
     * [Multiple Devices and Profiles](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#multiple-devices-and-profiles)
     * [Wildcard Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#wildcard-rules)
-    * [Import & Export Folders](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#import-&-export-folders)
+    * [Import & Export Folders](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#import--export-folders)
     * [Spoofing Domains](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#spoofing-domains)
     * [Geo Custom Rules](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#geo-custom-rules)
 
