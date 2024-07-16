@@ -346,7 +346,7 @@ To download a folder:
 #### TLDs
 You may want to add a folder to block certain [TLDs](https://webtribunal.net/blog/tld-statistics) and [IDNs](https://alldomains.hosting/en/what-are-idn-domains.html#what-is-an-idn-domain).
 
-[Hagezi](https://github.com/hagezi/dns-blocklists) has compiled folders for you to easily import into Control D.
+[Hagezi](https://github.com/hagezi/dns-blocklists) has compiled [folders](https://github.com/hagezi/dns-blocklists/tree/main/controld) for you to easily import into Control D, such as:
 
 * [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
 * [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
