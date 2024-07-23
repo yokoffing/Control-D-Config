@@ -12,7 +12,7 @@
 
 1) [Sign up](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#sign-up)
 2) [Profiles](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#profiles)
-3) [Devices](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#devices)
+3) [Endpoints](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#endpoints)
 4) [Customizations](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#customizations)
     * [Filters](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#filters)
         * [Recommendations](https://github.com/yokoffing/Control-D-Config?tab=readme-ov-file#recommendations)
@@ -49,9 +49,9 @@ To create a profile, select the big green `+` button at https://controld.com/das
 
 You'll be asked for a **Profile Name** and given a list of **Options**. See [Profile Options](https://github.com/yokoffing/Control-D-Config#profile-options) to decide which ones to enable.
 
-# Devices
+# Endpoints
 
-**Devices** enforce **profiles**. Every device is assigned to a profile.
+**Endpoints** (formerly Devices) enforce **profiles**. Every device is assigned to a profile.
 
 ### Create a device
 
