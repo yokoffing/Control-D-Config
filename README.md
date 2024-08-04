@@ -4,7 +4,7 @@
 
 # Guidelines
 1) Prevent overblocking by utilizing the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) (e.g., using [sane](https://privacyguides.org/basics/threat-modeling), quality blocklists).
-2) Pass the [girlfriend test](https://urbandictionary.com/define.php?term=Grandma%20Test) with few exceptions. These deviations are documented throughout the guide.
+2) Pass the user-friendliness tests with few exceptions. These deviations are documented throughout the guide.
 
 ***
 
@@ -313,8 +313,8 @@ Let's use the profile names from earlier. You might have:
 | Firefox         | Hardened             |
 | Chrome          | Hardened             |
 | iPhone          | Hardened             |
-| Wife's iPhone   | Relaxed              |
-| Wife's Mac      | Relaxed              |
+| Spouse's iPhone | Relaxed              |
+| Spouse's Mac    | Relaxed              |
 | Susie's iPad    | Kids                 |
 | Living Room TV  | Basic                |
 | Router          | Basic                |
