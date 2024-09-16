@@ -103,10 +103,10 @@ These are only suggestions. Feel free to mix and match.
 | Build               | Native                                                                  | 3rd Party                                       |
 |---------------------|-------------------------------------------------------------------------|-------------------------------------------------|
 | **Basic**  | Malware ([Relaxed](https://docs.controld.com/docs/malware#relaxed)) <br> Phishing                                                | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
-| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <br> New Domains<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
+| **Hardened** | Dynamic DNS <br> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <br> New Domains (Last Week)<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
+| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <br> New Domains (Last Month)<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
 
-<sup> **1** A domain is considered new if it has been registered for less than 30 days. Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
+<sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 <br>
 <sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
