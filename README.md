@@ -353,6 +353,10 @@ You may want to add a folder to block certain [TLDs](https://webtribunal.net/blo
 * [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
 
 #### International IPs
+
+> [!WARNING]
+> These rules may lead to false positives ([example](https://github.com/hagezi/dns-blocklists/issues/4406#issuecomment-2493773984)).
+
 I created a folder to block IP addresses from certain countries (see Geo Custom Rules). These countries have high rates of cybercrime or state-sponsored spyware activity. This folder excludes or disables rules affecting countries with high server traffic from other nations, such as the Netherlands and Israel.
 
 After importing the folder, review the list and disable certain rules if they affect your region or travel destinations.
@@ -391,6 +395,10 @@ Control D provides a simple and effective way to use DNS-based traffic redirecti
 4) Choose a proxy location.
 
 ## Geo Custom Rules
+
+> [!WARNING]
+> These rules may lead to false positives ([example](https://github.com/hagezi/dns-blocklists/issues/4406#issuecomment-2493773984)).
+
 :hammer_and_wrench: This feature is still in beta.
 
 [Geo Custom Rules](https://docs.controld.com/docs/geo-custom-rules) (GCRs) allow you to create custom rules based on the geo-location data of source and destination IPs for DNS queries. These rules allow you to redirect, block, or bypass domains that resolve to IPs in the chosen country.
