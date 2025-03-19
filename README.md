@@ -349,8 +349,14 @@ You may want to add a folder to block certain [TLDs](https://webtribunal.net/blo
 [Hagezi](https://github.com/hagezi/dns-blocklists) has compiled [folders](https://github.com/hagezi/dns-blocklists/tree/main/controld) for you to easily import into Control D, such as:
 
 * [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
-* [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
+* [Spam TLDs Allowlist](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
 * [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
+
+If you'd rather have these in one folder collectively, then that's an option as well:
+
+* [Spam TLDs Combined](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-combined-folder.json)
+
+Unfortunately, unlike blocklists, folders are maintained manually. You may want to set a reminder to refresh them every so often.
 
 #### International IPs
 
