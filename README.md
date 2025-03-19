@@ -66,31 +66,31 @@ While the device type does not impact the assigned DNS resolvers, it determines 
 
 ## Filters
 
-:bulb: A few well-chosen filters provide comprehensive protection.
-
-:warning: Since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
+:bulb: Filters update every 15-30 minutes.
 
 [Filters](https://docs.controld.com/docs/filters), or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
 
-All filters are updated every 15-30 minutes.
+Adding many filter lists won't significantly improve your coverage. In fact, doing so mainly increases the likelihood of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+This is because DNS blocklists collect their data from different sources, and the original sources don't include their own exception rules (allowlists) within them. So most projects are forced to build their own allowlist over time.
+
+And since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
 
 ### Native
-Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
+Control D maintains native filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
 
 ### 3rd Party
 
-These are popular community maintained filters. Hundreds of volunteers contribute to these lists in the [open-source](https://opensource.com/resources/what-open-source) community.
+Third-party filters are built by a handful of developers and input from the wider [open-source](https://opensource.com/resources/what-open-source) community.
 
-While most DNS blocklists [aggregate](https://blog.controld.com/why-you-should-block-ads-with-a-dns-service/#:~:text=Most%20popular%20third%2Dparty%20filters%20already%20block%20over%2090%25%20of%20the%20same%20content%2C%20so%20adding%20more%20provides%20minimal%20benefit.) their entries from other sources, they do not include their source's allowlist. They must manually build an allowlist over time. Therefore, when it comes to protecting yourself, adding multiple 3rd party lists does not provide substantial benefits. Rather, it only increases your chances of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
-
-The key is to choose reputable filters that balance breadth with accuracy. Ultimately, [false positives](https://csrc.nist.gov/glossary/term/false_positive) can disrupt legitimate traffic, so quality is preferable over quantity when selecting blocklists.
+You should select trustworthy filters that balance comprehensive coverage with high accuracy. Prioritizing quality over quantity is essential when you select blocklists, since false positives can block your access to legitimate websites.
 
 I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS lists for his:
 * sensible allowlist (doesn't overblock = smooth browsing experience)
 * quick handling of [false positives](https://csrc.nist.gov/glossary/term/false_positive) (within the same day, if not sooner)
 * unique entries combined with respected community filters like [OISD](https://oisd.nl/), [Steven Black](https://github.com/StevenBlack/hosts), and other [sources](https://github.com/hagezi/dns-blocklists/blob/main/sources.md)
 
-You can choose other 3rd party lists, but they aren't needed.
+You can choose other third-party lists, but they aren't needed.
 
 ### Recommendations
 I have three builds below, using a combination of both native and 3rd party filters:
