@@ -1,6 +1,5 @@
 ![GitHub Maintained](https://img.shields.io/badge/open%20source-yes-orange)
 ![GitHub Maintained](https://img.shields.io/badge/maintained-yes-yellow)
-[![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FControl-D-Config&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Guidelines
 1) Prevent overblocking by utilizing the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) (e.g., using [sane](https://privacyguides.org/basics/threat-modeling), quality blocklists).
@@ -102,9 +101,9 @@ These are only suggestions. Feel free to mix and match.
 
 | Build               | Native                                                                  | 3rd Party                                       |
 |---------------------|-------------------------------------------------------------------------|-------------------------------------------------|
-| **Basic**  | Malware ([Relaxed](https://docs.controld.com/docs/malware#relaxed)) <br> Phishing                                                | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <br> New Domains (Last Week)<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
-| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <br> New Domains (Last Month)<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
+| **Basic**  | Malware ([Relaxed](https://docs.controld.com/docs/malware#relaxed)) <p><p> Phishing <p><p>                                               | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
+| **Hardened** | Dynamic DNS <p><p> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <p><p> New Domains (Last Week)<sup>1</sup> <p><p> Phishing <p><p> | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
+| **Aggressive** | Clickbait <p><p> Dynamic DNS <p><p> IoT Telemetry <p><p> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <p><p> New Domains (Last Month)<sup>1</sup><p><p> Phishing <p><p> | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
 
 <sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 <br>
