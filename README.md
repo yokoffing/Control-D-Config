@@ -40,7 +40,7 @@ Once you create an account, you will have a [Profile](https://docs.controld.com/
 
 :bulb: Since your Profile already exists when you create a new account, you only need to create your first [Device](https://docs.controld.com/docs/devices) and enforce this Profile to get up and running. This automatically generates the DNS resolvers while keeping things simple — associating one Profile to one Device.
 
-Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
+Profiles are like policies. They determine what you want to enforce for each device (endpoint). Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
 ### Create a profile
 
@@ -52,13 +52,14 @@ You'll be asked for a **Profile Name** and given a list of **Options**. See [Pro
 
 **Endpoints** (formerly Devices) enforce **profiles**. Every device is assigned to a profile.
 
-### Create a device
+## Create an endpoint
 
-To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use.
+To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use. You then choose which profile to enforce.
 
-When adding a new Device, you must select its type from one of the following categories: desktop or mobile OS, smart TV OS, web browser, or router.
+When adding a new Endpoint, you must select its type from one of the following categories: desktop or mobile OS, smart TV OS, web browser, or router. While the device type does not impact the assigned DNS resolvers, it determines the setup guide and automatic configuration steps displayed later. The automated setup is recommended for most beginners.
 
-While the device type does not impact the assigned DNS resolvers, it determines the setup guide and automatic configuration steps displayed later. The automated setup is recommended for most beginners.
+## Advanced Settings
+*Generally, you won't need to tinker with these.*
 
 ***
 # Customizations
