@@ -1,6 +1,6 @@
+[![Visitors](https://hits.sh/github.com/yokoffing/Control-D-Config.svg)](https://hits.sh/github.com/yokoffing/Control-D-Config/)
 ![GitHub Maintained](https://img.shields.io/badge/open%20source-yes-orange)
 ![GitHub Maintained](https://img.shields.io/badge/maintained-yes-yellow)
-[![Visitors](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fyokoffing%2FControl-D-Config&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=visitors&edge_flat=false)](https://hits.seeyoufarm.com)
 
 # Guidelines
 1) Prevent overblocking by utilizing the [law of diminishing returns](https://pmctraining.com/site/wp-content/uploads/2018/04/Law-of-Diminishing-Returns-CHART.png) (e.g., using [sane](https://privacyguides.org/basics/threat-modeling), quality blocklists).
@@ -41,7 +41,7 @@ Once you create an account, you will have a [Profile](https://docs.controld.com/
 
 :bulb: Since your Profile already exists when you create a new account, you only need to create your first [Device](https://docs.controld.com/docs/devices) and enforce this Profile to get up and running. This automatically generates the DNS resolvers while keeping things simple — associating one Profile to one Device.
 
-Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
+Profiles are like policies. They determine what you want to enforce for each device (endpoint). Profiles are divided into Filters, Services, Custom Rules, and Profile Options.
 
 ### Create a profile
 
@@ -53,44 +53,45 @@ You'll be asked for a **Profile Name** and given a list of **Options**. See [Pro
 
 **Endpoints** (formerly Devices) enforce **profiles**. Every device is assigned to a profile.
 
-### Create a device
+## Create an endpoint
 
-To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use.
+To create a device, select the big green `+` button at https://controld.com/dashboard/devices and add the devices that you use. You then choose which profile to enforce.
 
-When adding a new Device, you must select its type from one of the following categories: desktop or mobile OS, smart TV OS, web browser, or router.
+When adding a new Endpoint, you must select its type from one of the following categories: desktop or mobile OS, smart TV OS, web browser, or router. While the device type does not impact the assigned DNS resolvers, it determines the setup guide and automatic configuration steps displayed later. The automated setup is recommended for most beginners.
 
-While the device type does not impact the assigned DNS resolvers, it determines the setup guide and automatic configuration steps displayed later. The automated setup is recommended for most beginners.
+## Advanced Settings
+*Generally, you won't need to tinker with these.*
 
 ***
 # Customizations
 
 ## Filters
 
-:bulb: A few well-chosen filters provide comprehensive protection.
-
-:warning: Since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
+:bulb: Filters update every 15-30 minutes.
 
 [Filters](https://docs.controld.com/docs/filters), or blocklists, prevent select websites from resolving. They primarily target ads, [trackers](https://freecodecamp.org/news/what-you-should-know-about-web-tracking-and-how-it-affects-your-online-privacy-42935355525/), and malicious sites.
 
-All filters are updated every 15-30 minutes.
+Adding many filter lists won't significantly improve your coverage. In fact, doing so mainly increases the likelihood of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
+
+This is because DNS blocklists collect their data from different sources, and the original sources don't include their own exception rules (allowlists) within them. So most projects are forced to build their own allowlist over time.
+
+And since DNS is vital for websites to load properly, overblocking will cause a lot of headaches. 
 
 ### Native
-Control D maintains these filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
+Control D maintains native filters. Some filters have multiple [modes](https://docs.controld.com/docs/filters#modes) (Relaxed, Balanced, Strict).
 
 ### 3rd Party
 
-These are popular community maintained filters. Hundreds of volunteers contribute to these lists in the [open-source](https://opensource.com/resources/what-open-source) community.
+Third-party filters are built by a handful of developers and input from the wider [open-source](https://opensource.com/resources/what-open-source) community.
 
-While most DNS blocklists [aggregate](https://blog.controld.com/why-you-should-block-ads-with-a-dns-service/#:~:text=Most%20popular%20third%2Dparty%20filters%20already%20block%20over%2090%25%20of%20the%20same%20content%2C%20so%20adding%20more%20provides%20minimal%20benefit.) their entries from other sources, they do not include their source's allowlist. They must manually build an allowlist over time. Therefore, when it comes to protecting yourself, adding multiple 3rd party lists does not provide substantial benefits. Rather, it only increases your chances of [false positives](https://csrc.nist.gov/glossary/term/false_positive).
-
-The key is to choose reputable filters that balance breadth with accuracy. Ultimately, [false positives](https://csrc.nist.gov/glossary/term/false_positive) can disrupt legitimate traffic, so quality is preferable over quantity when selecting blocklists.
+You should select trustworthy filters that balance comprehensive coverage with high accuracy. Prioritizing quality over quantity is essential when you select blocklists, since false positives can block your access to legitimate websites.
 
 I strongly recommend [Hagezi's](https://github.com/hagezi/dns-blocklists) DNS lists for his:
 * sensible allowlist (doesn't overblock = smooth browsing experience)
 * quick handling of [false positives](https://csrc.nist.gov/glossary/term/false_positive) (within the same day, if not sooner)
 * unique entries combined with respected community filters like [OISD](https://oisd.nl/), [Steven Black](https://github.com/StevenBlack/hosts), and other [sources](https://github.com/hagezi/dns-blocklists/blob/main/sources.md)
 
-You can choose other 3rd party lists, but they aren't needed.
+You can choose other third-party lists, but they aren't needed.
 
 ### Recommendations
 I have three builds below, using a combination of both native and 3rd party filters:
@@ -102,15 +103,15 @@ These are only suggestions. Feel free to mix and match.
 
 | Build               | Native                                                                  | 3rd Party                                       |
 |---------------------|-------------------------------------------------------------------------|-------------------------------------------------|
-| **Basic**  | Malware ([Relaxed](https://docs.controld.com/docs/malware#relaxed)) <br> Phishing                                                | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
-| **Hardened** | Dynamic DNS <br> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <br> New Domains (Last Week)<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
-| **Aggressive** | Clickbait <br> Dynamic DNS <br> IoT Telemetry <br> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <br> New Domains (Last Month)<sup>1</sup> <br> Phishing | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
+| **Basic**  | Malware ([Relaxed](https://docs.controld.com/docs/malware#relaxed)) <p><p> Phishing <p><p>                                               | Hagezi's DNS - Normal <p><p>Hagezi's DNS - TIF   |
+| **Hardened** | Dynamic DNS <p><p> Malware ([Balanced](https://docs.controld.com/docs/malware#balanced)) <p><p> New Domains (Last Week)<sup>1</sup> <p><p> Phishing <p><p> | Hagezi's DNS - Pro <p><p> Hagezi's DNS - TIF |
+| **Aggressive** | Clickbait <p><p> Dynamic DNS <p><p> IoT Telemetry <p><p> Malware ([Strict](https://docs.controld.com/docs/malware#strict))<sup>2</sup> <p><p> New Domains (Last Month)<sup>1</sup><p><p> Phishing <p><p> | Hagezi's DNS - Pro Plus <p><p> Hagezi's DNS - TIF |
 
 <sup> **1** Blocking newly registered domains (NRDs) may cause [false positives](https://csrc.nist.gov/glossary/term/false_positive) [occasionally](https://www.reddit.com/r/InternetIsBeautiful/comments/w2wdro/comment/iguvg8y/?context=3). Be selective when adding NRDs to your allowlist; and, if you do, **NEVER** give [sensitive information](https://egnyte.com/guides/governance/sensitive-information) to a NRD. </sup>
 <br>
 <sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
-[Not all ads](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) can be blocked at the DNS level. You will need an [ad blocker](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to block what's leftover.
+[Not all ads](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) can be blocked at the DNS level ([example](https://www.reddit.com/r/uBlockOrigin/comments/1bjuy9v/comment/kvtum06/)). You will need an [ad blocker](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to block what's leftover.
 
 This is because not all ads come from third-party domains. Some ads come directly from the site you're visiting, like [YouTube](https://discourse.pi-hole.net/t/how-do-i-block-ads-on-youtube/253/2). DNS blockers stop the resolution of a domain, and content blockers filter page content.
 
@@ -224,7 +225,7 @@ DNS over HTTPS (DoH) and similar protocols do **not** eliminate the need for DNS
 
 Control D also [states](https://discord.com/channels/1035992466203099147/1037876518778572860/1143716723883778088) that DNSSEC<sup>1</sup> requires a separate DNS resolver and cache, which impacts performance.
 
-<sup> **1** At this time, [DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are grouped together in this settings.</sup>
+<sup> **1** Previously, [DNSSEC validation](https://www.quad9.net/support/faq/#dnssec) and [EDNS Client Subnet](https://www.quad9.net/support/faq/#edns) (ECS) are grouped together in this settings.</sup>
 
 ### TTL Overrides
 :bulb: Increasing the TTL values caches DNS records for longer periods, which minimizes queries and optimizes performance.
@@ -248,7 +249,7 @@ Below are possible values to use for DNS caching, measured in seconds.
 ![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
 **Default value:** `10` (10 seconds)
-<br> **Recommended value:** `60` (1 minute)
+<br> **Recommended value:** `120` (2 minutes)
 
 [Block TTL](https://docs.controld.com/docs/ttl-overrides#block-ttl) increases the time-to-live for DNS records blocked by Control D. A higher value means fewer DNS lookups for blocked requests, but also a longer delay between unblocking a domain and it becoming accessible.
 
@@ -268,10 +269,75 @@ A redirect rule spoofs the domain to a proxy location or alternate IP address. [
 ![Enabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/enabled.svg) Enable
 
 **Default value:**  `60` (1 minute)
-<br> **Recommended value:** `3600` (1 hour) or `86400` (24 hours)
+<br> **Recommended value:** `3600` (1 hour)
 
 [Bypass TTL](https://docs.controld.com/docs/ttl-overrides#bypass-ttl) increases the time-to-live for DNS records that were not blocked or redirected (i.e. 'normal' requests), and passed to the upstream resolver. A higher value means fewer DNS lookups, but can cause websites to break if set beyond 24 hours.
 
+### Block Response
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
+Advanced Users: Choose how to respond to blocked queries. Allows you to create [custom block pages](https://docs.controld.com/docs/blocked-query-response).
+
+### EDNS Client Subnet
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
+[EDNS Client Subnet](https://docs.controld.com/docs/ecs-custom-subnet) (ECS) is a feature that adds part of your IP address, known as the subnet, to DNS requests when you send them to a DNS server. This helps the server deliver responses tailored to your location, so you get faster and more accurate results. However, it shares some of your network details with upstream DNS providers.
+
+Control D offers three distinct ECS configurations:
+* **No ECS** is identical to keeping EDNS Client Subnet disabled. Control D shares no subnet information. This is the default behavior and the most privacy-focused choice.
+* **Auto** automatically uses the subnet of the Control D server you're connecting to for DNS resolution. It provides location-relevant results without directly sharing your own subnet information.
+* **Custom** allows you to specify a particular subnet that will be sent with DNS requests. However, if left blank, it can expose your real, actual client subnet.
+
+<details>
+
+<summary>What are subnets? (click me)</summary>
+
+> A [subnet mask](https://pcolladosoto.github.io/posts/ip-subnetting/#time-for-subnets) is a 32-bit number that works with an IP address to identify which part of the address represents the network and which part represents the specific device on that network. Subnet masks help with routing and dividing networks. They let you split a large network into smaller, more manageable subnets. This [split](https://medium.com/evrekadev/ipv4-addressing-and-subnetting-key-concepts-and-subnet-calculations-1182ee16323c#:~:text=Mask-,A%20subnet%20mask%20is%20a%2032%2Dbit%20number) improves performance and security and helps network administrators use IP addresses more efficiently.
+
+</details>
+
+<details>
+
+<summary>Example (click me)</summary>
+
+> Imagine you’re in Chicago and a popular streaming service keeps its movies on many different servers spread around the world. When you open the app, your device needs to know which of those servers is closest to you so the video starts quickly and in full quality.
+>
+> Without ECS, your query first reaches a recursive resolver run by your DNS provider. That resolver might be located in New York, so when it asks the streaming service’s authoritative DNS where to send you, the authoritative server only sees the New York IP and sends back the address of the New York–based movie server. Your traffic then has to travel an extra few hundred miles, adding delay.
+>
+> With ECS enabled, the resolver still sits in New York, but it forwards your query to the authoritative server with a note attached: “This user is coming from the `198.51.100.0/24` subnet, geolocated to Chicago.” The authoritative server now knows you’re physically in Chicago and responds with the IP address of the Chicago server instead. The video loads faster and buffers less, because the data has a shorter physical path to travel.
+>
+> The trade-off is that the streaming service’s DNS team—and any other upstream DNS operator along the way—now knows you’re somewhere in that `/24` block, which narrows your location down to a neighborhood or ISP region rather than your exact address.
+</details>
+
+
+#### Recommendation
+1) **No ECS** should only be selected by those who prioritize privacy above all performance considerations. It completely eliminates the geographical optimization benefits that make ECS valuable for residential internet performance.
+2) **Auto** essentially implements a form of privacy-friendly ECS by using the DNS server's subnet rather than the client's actual subnet. This mode provides geographical relevance without exposing specific network details. It represents a good middle ground between the privacy concerns of traditional ECS and the performance benefits of geographical optimization.
+3) **Custom** delivers the maximum performance potential that ECS can provide as, if it is left blank, Control D will expose your actual client subnet. (So, all performance benefit with no privacy protection.) However, advanced users can toggle this option with they need to use a particular location.
+
+This guide isn't geared towards enterprise users, but one could argue that some companies could benefit in the opposite order: Custom, Auto, No ECS. Large organizations can benefit from ECS performance improvements, particularly when supporting distributed workforces or managing applications that rely on content delivery networks for optimal performance.
+
+### Compatibility Mode
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
+Advanced Users: Cross-stack [IPv4/IPv6 compatibility mode](https://docs.controld.com/docs/ipv6-compatibility-mode) for IPv6 enabled networks. Don't blindly enable this!
+
+### Enable DNS64
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
+Advanced Users: Enables [DNS64 on NAT64](https://docs.controld.com/docs/dns64) supporting IPv6-only networks. Don't blindly enable this!
+
+### CNAME Flattening
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
+[Flatten CNAME records](https://docs.controld.com/docs/cname-flattening) to their target IP addresses. Be advised that CNAME flattening is a feature that most people misunderstand. It does not give any real performance improvements to you, the end user. Instead, it returns a smaller DNS response with a final `A` record rather than a [CNAME chain](https://99devops.com/why-is-cname-chaining-not-considered-good). This is helpful in very specific cases only.
+
+### Disable
+![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
+
+Temporarily disable all filters, services and rules.
+
+### 
 ***
 # Advanced Users
 ## Multiple Devices and Profiles
@@ -349,8 +415,14 @@ You may want to add a folder to block certain [TLDs](https://webtribunal.net/blo
 [Hagezi](https://github.com/hagezi/dns-blocklists) has compiled [folders](https://github.com/hagezi/dns-blocklists/tree/main/controld) for you to easily import into Control D, such as:
 
 * [Spam TLDs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-folder.json)
-* [Spam TLDs Allow](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
+* [Spam TLDs Allowlist](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-allow-folder.json)
 * [Spam IDNs](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-idns-folder.json)
+
+If you'd rather have these in one folder collectively, then that's an option as well:
+
+* [Spam TLDs Combined](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-combined-folder.json)
+
+Unfortunately, unlike blocklists, folders are maintained manually. You may want to set a reminder to refresh them every so often. An alternative is to use [this script](https://github.com/keksiqc/ctrld-sync) with GitHub Actions to automate the sync.
 
 #### International IPs
 
