@@ -110,7 +110,7 @@ These are only suggestions. Feel free to mix and match.
 <br>
 <sup> **2** [Strict](https://docs.controld.com/docs/malware#strict) mode may be especially prone to false positives. Drop down to [Balanced](https://docs.controld.com/docs/malware#relaxed) mode if [false positives](https://csrc.nist.gov/glossary/term/false_positive) frequently disrupt browsing. </sup>
 
-[Not all ads](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) can be blocked at the DNS level. You will need an [ad blocker](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to block what's leftover.
+[Not all ads](https://www.reddit.com/r/nextdns/comments/14nsfhv/comment/jq982bi/?context=3) can be blocked at the DNS level ([example](https://www.reddit.com/r/uBlockOrigin/comments/1bjuy9v/comment/kvtum06/)). You will need an [ad blocker](https://github.com/yokoffing/NextDNS-Config#i-need-a-browser-with-ad-blocking-which-one-should-i-choose) to block what's leftover.
 
 This is because not all ads come from third-party domains. Some ads come directly from the site you're visiting, like [YouTube](https://discourse.pi-hole.net/t/how-do-i-block-ads-on-youtube/253/2). DNS blockers stop the resolution of a domain, and content blockers filter page content.
 
