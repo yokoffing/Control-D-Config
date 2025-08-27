@@ -1,3 +1,4 @@
+[![Visitors](https://hits.sh/github.com/yokoffing/Control-D-Config.svg)](https://hits.sh/github.com/yokoffing/Control-D-Config/)
 ![GitHub Maintained](https://img.shields.io/badge/open%20source-yes-orange)
 ![GitHub Maintained](https://img.shields.io/badge/maintained-yes-yellow)
 
