@@ -356,7 +356,7 @@ If you'd rather have these in one folder collectively, then that's an option as 
 
 * [Spam TLDs Combined](https://github.com/hagezi/dns-blocklists/blob/main/controld/spam-tlds-combined-folder.json)
 
-Unfortunately, unlike blocklists, folders are maintained manually. You may want to set a reminder to refresh them every so often.
+Unfortunately, unlike blocklists, folders are maintained manually. You may want to set a reminder to refresh them every so often. An alternative is to use [this script](https://github.com/keksiqc/ctrld-sync) with GitHub Actions to automate the sync.
 
 #### International IPs
 
