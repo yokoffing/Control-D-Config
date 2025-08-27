@@ -329,7 +329,7 @@ Advanced Users: Enables [DNS64 on NAT64](https://docs.controld.com/docs/dns64) s
 ### CNAME Flattening
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
 
-[Flatten CNAME records](https://docs.controld.com/docs/cname-flattening) to their target IP addresses.
+[Flatten CNAME records](https://docs.controld.com/docs/cname-flattening) to their target IP addresses. Be advised that CNAME flattening is a feature that most people misunderstand. It does not give any real performance improvements to you, the end user. Instead, it returns a smaller DNS response with a final `A` record rather than a [CNAME chain](https://99devops.com/why-is-cname-chaining-not-considered-good). This is helpful in very specific cases only.
 
 ### Disable
 ![Disabled](https://github.com/yokoffing/Control-D-Config/blob/main/assets/disabled.svg) Disable
